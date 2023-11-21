@@ -127,15 +127,6 @@ AutoSteps.MouseButton1Down:Connect(function()
     ToggleEnabled = not ToggleEnabled
     if ToggleEnabled then 
         game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 211, 0)}):Play()
-        if getgenv().AutoSteps == true then
-            repeat wait()
-                local args = {
-                    [1] = "collectOrb",
-                    [2] = "Red Orb",
-                    [3] = "City"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
     else
         game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(211, 0, 0)}):Play()
         getgenv().AutoSteps = false
@@ -214,14 +205,6 @@ AutoHoop.MouseButton1Down:Connect(function()
     ToggleEnabled = not ToggleEnabled
     if ToggleEnabled then 
         game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 211, 0)}):Play()
-        if getgenv().AutoSteps == true then
-            repeat wait()
-                local children = workspace.Hoops:GetChildren()
-                for i, child in ipairs(children) do
-                    if child.Name == "Hoop" then 
-                child.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                    end    
-                end
     else
         game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(211, 0, 0)}):Play()
         getgenv().AutoSteps = false
@@ -246,13 +229,6 @@ AutoRebirths.MouseButton1Down:Connect(function()
     ToggleEnabled = not ToggleEnabled
     if ToggleEnabled then 
         game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 211, 0)}):Play()
-        if getgenv().AutoSteps == true then
-            repeat wait()
-                local args = {
-                    [1] = "rebirthRequest"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("rebirthEvent"):FireServer(unpack(args))
     else
         game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(211, 0, 0)}):Play()
         getgenv().AutoSteps = false
