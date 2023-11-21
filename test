@@ -362,7 +362,7 @@ closeopen.Text = ""
 closeopen.TextColor3 = Color3.fromRGB(0, 0, 0)
 closeopen.TextSize = 14.000
 closeopen.Parent.MouseButton1Click:Connect(function()
-    local mk = script.Parent.Parent.Main
+    local mk = script.Parent.Parent.ErenHub
 	mk.Visible = not mk.Visible
 	end)
 
