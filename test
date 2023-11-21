@@ -257,7 +257,7 @@ Magmacity.BorderSizePixel = 0
 Magmacity.Position = UDim2.new(0, 0, 0.02016172, 0)
 Magmacity.Size = UDim2.new(0, 185, 0, 26)
 Magmacity.Font = Enum.Font.RobotoCondensed
-Magmacity.Text = "Magma city"
+Magmacity.Text = "city"
 Magmacity.TextColor3 = Color3.fromRGB(255, 255, 255)
 Magmacity.TextSize = 14.000
 Magmacity.MouseButton1Down:Connect(function()
