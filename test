@@ -1,15 +1,12 @@
---55
 local mkui = loadstring(game:HttpGet("https://pastebin.com/raw/Q69rcHsK"))()
 
 local mk = mkui.CreateLib("BountySkill Hub", "Deep")
 
 local BountySkillFarmingTab = mk:NewTab("Farming")
-local BountySkillPlayerTab = mk:NewTab("Player")
 local GoldenDevilsTab = mk:NewTab("Golden Devils")
 
 
 local BountySkillFarmingSection = BountySkillFarmingTab:NewSection("Farming")
-local BountySkillPlayerSection = = BountySkillPlayerTab:NewSection("Player")
 local GoldenDevilsSection = GoldenDevilsTab:NewSection("Copy Url")
 
 
@@ -41,6 +38,7 @@ end
     end
 end)
 
+
 BountySkillFarmingSection:NewToggle("  Loop  Farm  Rebirth ", "", function(state)
     if state then
         game:GetService("StarterGui"):SetCore("SendNotification", { 
@@ -53,7 +51,7 @@ BountySkillFarmingSection:NewToggle("  Loop  Farm  Rebirth ", "", function(state
         if getgenv().AutoMoney == true then
             repeat wait()
 
-				game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:rebirth"):FireServer(1)
+				game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:rebirth"):FireServer(Rebirth)
 
 
 	until getgenv().AutoMoney == false
@@ -72,7 +70,6 @@ end)
 
 
 
-
 GoldenDevilsSection:NewButton("Copy Url Discord Server GD", "", function()
 	game:GetService("StarterGui"):SetCore("SendNotification", { 
 		Title = "BountySkill Hub ";
@@ -83,7 +80,3 @@ GoldenDevilsSection:NewButton("Copy Url Discord Server GD", "", function()
 	setclipboard("discord.gg/GoldenDevils")
 
 end)
-
-
-
-
