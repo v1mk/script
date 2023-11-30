@@ -55,9 +55,8 @@ BountySkillFarmingSection:NewToggle("  Loop  Farm  Rebirth ", "", function(state
         getgenv().AutoMoney = true
         if getgenv().AutoMoney == true then
             repeat wait()
-				local Rebirth
-				Rebirth = 1 
-				game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:rebirth"):FireServer(Rebirth)
+
+				game:GetService("ReplicatedStorage"):FindFirstChild("functions-shared/network@GlobalFunctions"):FindFirstChild("s:rebirth"):FireServer(1)
 
 
 	until getgenv().AutoMoney == false
@@ -74,9 +73,7 @@ end
     end
 end)
 
-BountySkillFarmingSection:NewTextBox("Rebirth", "", function(txt)
-	Rebirth = txt
-end)
+
 
 
 GoldenDevilsSection:NewButton("Copy Url Discord Server GD", "", function()
