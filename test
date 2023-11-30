@@ -90,10 +90,4 @@ end)
 
 
 
-BountySkillPlayerSection:NewTextBox("Walk Speed", "", function(Spe)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Spe
-end)
 
-BountySkillPlayerSection:NewTextBox("Jump Power", "", function(jp)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = jp
-end)
