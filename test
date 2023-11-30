@@ -1,8 +1,8 @@
-
+--653
 
 local mkui = loadstring(game:HttpGet("https://pastebin.com/raw/Q69rcHsK"))()
 
-local mk = mkui.CreateLib("BountySkill Hub", "Lord")
+local mk = mkui.CreateLib("BountySkill Hub", "Deep")
 
 local BountySkillFarmingTab = mk:NewTab("Farming")
 local GoldenDevilsTab = mk:NewTab("Golden Devils")
