@@ -74,7 +74,7 @@ end
     end
 end)
 
-Section:NewTextBox("Rebirth", "", function(txt)
+BountySkillSection:NewTextBox("Rebirth", "", function(txt)
 	Rebirth = txt
 end)
 
