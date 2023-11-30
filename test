@@ -1,17 +1,14 @@
---This ui made by Discord : .2mk
---5
+local mkui = loadstring(game:HttpGet("https://pastebin.com/raw/Q69rcHsK"))()
 
-local mkui = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-
-local mk = mkui.CreateLib("BountySkill Hub", "Ocean")
+local mk = mkui.CreateLib("BountySkill Hub", "Deep")
 
 local BountySkillFarmingTab = mk:NewTab("Farming")
 local BountySkillPlayerTab = mk:NewTab("Player")
 local GoldenDevilsTab = mk:NewTab("Golden Devils")
 
 
-local BountySkillSection = BountySkillFarmingTab:NewSection("Farming")
-
+local BountySkillFarmingSection = BountySkillFarmingTab:NewSection("Farming")
+local BountySkillPlayerSection = = BountySkillPlayerTab:NewSection("Player")
 local GoldenDevilsSection = GoldenDevilsTab:NewSection("Copy Url")
 
 
@@ -75,7 +72,7 @@ end
     end
 end)
 
-BountySkillSection:NewTextBox("Rebirth", "", function(txt)
+Section:NewTextBox("Rebirth", "", function(txt)
 	Rebirth = txt
 end)
 
@@ -85,7 +82,7 @@ GoldenDevilsSection:NewButton("Copy Url Discord Server GD", "", function()
 		Title = "BountySkill Hub ";
 		Text = "Done!";
 		Icon = "http://www.roblox.com/asset/?id=10629794985"})
-		Duration = 5; 
+		Duration = 5;  
 
 	setclipboard("discord.gg/GoldenDevils")
 
@@ -93,3 +90,10 @@ end)
 
 
 
+BountySkillPlayerSection:NewTextBox("Walk Speed", "", function(Spe)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Spe
+end)
+
+BountySkillPlayerSection:NewTextBox("Jump Power", "", function(jp)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = jp
+end)
