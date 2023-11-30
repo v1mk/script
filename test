@@ -1,5 +1,4 @@
---44
-
+--55
 local mkui = loadstring(game:HttpGet("https://pastebin.com/raw/Q69rcHsK"))()
 
 local mk = mkui.CreateLib("BountySkill Hub", "Deep")
@@ -41,8 +40,6 @@ end
 
     end
 end)
-
-Rebirth = 1 
 
 BountySkillFarmingSection:NewToggle("  Loop  Farm  Rebirth ", "", function(state)
     if state then
