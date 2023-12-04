@@ -953,8 +953,8 @@ end
     end
 end)
 
-tab:Textbox("Walk Speed","Speed Here!",function(x)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = x
+tab:Textbox("Walk Speed","Speed Here!",function(speed)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
 end)
 
 
