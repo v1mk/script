@@ -509,6 +509,7 @@ tab1:Toggle("Fling",function(State)
         getgenv().Fling = true
         if getgenv().Fling == true then
             repeat wait()
+				local mk = Player(TextBox.Text
 				local Targets = {mk}
 				local Players = game:GetService("Players")
 				local Player = Players.LocalPlayer
@@ -734,15 +735,13 @@ end
     end
 end)
 
-tab1:Textbox("Walk Speed","Speed Here!",function(x)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = x
-end)
 
 
 
 
 
 
-tab1:Textbox("Name Player..","Type Here!",function(txt)
- mk = txt
+local mk
+tab1:Textbox("Name Player..","Type Here!",function(x)
+ mk = x
 end)
