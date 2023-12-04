@@ -21,19 +21,6 @@ local HonBaki = Instance.new("TextLabel")
 
 local PagesHolder = Instance.new("Frame")
 
-local ToggleFrame = Instance.new("Frame")
-local ToggleFrameCorner = Instance.new("UICorner")
-local ToggleButton = Instance.new("TextButton")
-local Toggle = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local TextboxFrame = Instance.new("Frame")
-local TextboxFrameCorner = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
-local TextBox = Instance.new("TextBox")
-local UICorner_2 = Instance.new("UICorner")
-
-
-local FrameCorner_2 = Instance.new("UICorner")
 local OpenCloseButton = Instance.new("ImageButton")
 
 
