@@ -496,6 +496,8 @@ tab1:Button("Sofa",function()
 	}
 	
 	game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = mk.Character.HumanoidRootPart.CFrame
 end)
 
 tab1:Toggle("Fling",function(State)
