@@ -966,12 +966,4 @@ tab1:Textbox("Name Player..","Type Here!",function(txt)
 	mk = txt
 end)
 
-tab1:Toggle("View",function(x)
-	local TargetV = Player(TextBox.Text)
-	
-	if x then
-		game.Workspace.Camera.CameraSubject = TargetV.Character.Humanoid
-	else
-		game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
-	end    
-end)
+
