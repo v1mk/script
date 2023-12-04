@@ -511,7 +511,6 @@ tab1:Toggle("Fling",function(State)
         getgenv().Fling = true
         if getgenv().Fling == true then
             repeat wait()
-				local mk = Player(TextBox.Text
 				local Targets = {mk}
 				local Players = game:GetService("Players")
 				local Player = Players.LocalPlayer
