@@ -483,7 +483,7 @@ local win = Lib:Window("Baki Hub")
 local tab = win:Tab("mk",true)
 local tab1 = win:Tab("Target",true)
 
-local Lb = tab1:Label(Welcome plr.Name,Color3.fromRGB(255, 255, 255))
+local Lb = tab1:Label("Welcome",Color3.fromRGB(255, 255, 255))
 wait(1)
 
 Lb:Set("mK",Color3.fromRGB(255, 255, 0))
