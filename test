@@ -479,7 +479,7 @@ function Lib:Window(name,key)
     return PageT
 end
 
-local win = Lib:Window("Baki Hub , Brookhaven 🏡RP ")
+local win = Lib:Window("Baki Hub")
 local tab = win:Tab("mk",true)
 local tab1 = win:Tab("Target",true)
 
