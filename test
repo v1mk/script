@@ -957,11 +957,6 @@ tab:Textbox("Walk Speed","Speed Here!",function(speed)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
 end)
 
-
-
-
-
-
 tab1:Textbox("Name Player..","Type Here!",function(txt)
 	mk = txt
 end)
