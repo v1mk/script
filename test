@@ -119,7 +119,7 @@ local TargetV = Player(TextBox.Text) -- تعريف المستهدم من الtxt
 local plr = game.Players.LocalPlayer
 local hum = plr.Character.HumanoidRootPart
 
-game:GetService("TweenService"):Create(hum,TweenInfo.new(1),{plr.CFrame = TargetV.Character.HumanoidRootPart.CFrame}) -- ينتقل للاعب
+game:GetService("TweenService"):Create(hum,TweenInfo.new(1),{plr.CFrame = TargetV.Character.HumanoidRootPart.CFrame)} -- ينتقل للاعب
 end)
 
     TextButton_2.MouseButton1Down:Connect(function()
