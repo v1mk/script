@@ -1,3 +1,5 @@
+-- ok
+
 for _,v in pairs(game.CoreGui:GetChildren()) do
 	if v.Name == "BakiUi"then
 		v:Destroy()
@@ -295,7 +297,6 @@ TextBox.FocusLost:Connect(function()
     TextBox.Text = txt
     TextBox.TextColor3 = Color3.fromRGB(200, 200, 200)
 end)
-end
 
 local PageElements = {}
 
@@ -480,6 +481,7 @@ CloseButton.MouseButton1Down:Connect(function()
     end
 end)
 
+end
 end
 return PageElements
 end
