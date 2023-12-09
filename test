@@ -19,8 +19,8 @@ function Lib:Window(name,key)
 	local TabsScrollingFrame = Instance.new("ScrollingFrame")
 
 	local Line = Instance.new("Frame")
-	local LineCorner = Instance.new("UICorner")
-	local name_Label_script = Instance.new("TextLabel")
+    local UICorner = Instance.new("UICorner")
+    local name_Label_script = Instance.new("TextLabel")
 	
 	local Pages = Instance.new("Frame")
     
