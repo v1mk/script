@@ -1,6 +1,464 @@
--- lol
-print"lol"
-print"hahahahahaha"
-print"crazy man"
-print"okay"
-print"naaah"
+for _,v in pairs(game.CoreGui:GetChildren()) do
+	if v.Name == "BakiUi"then
+		v:Destroy()
+	end
+end
+
+local Lib = {}
+
+function Lib:Window(name,key)
+	local BakiUi = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local FrameCorner = Instance.new("UICorner")
+	
+	local ShadowHolder = Instance.new("Frame")
+	local DropShadow = Instance.new("ImageLabel")
+	
+	local TabsFrame = Instance.new("Frame")
+	local TabsCorner = Instance.new("UICorner")
+	
+	local Line = Instance.new("Frame")
+	local LineCorner = Instance.new("UICorner")
+	local name_Label_script = Instance.new("TextLabel")
+	
+	local Pages = Instance.new("Frame")
+	
+    local CloseButton = Instance.new("ImageButton")
+
+BakiUi.Name = "BakiUi"
+BakiUi.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+BakiUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = BakiUi
+Frame.BackgroundColor3 = Color3.fromRGB(4, 5, 12)
+Frame.BackgroundTransparency = 0.200
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.262112945, 0, 0.312967569, 0)
+Frame.Size = UDim2.new(0, 462, 0, 300)
+
+FrameCorner.CornerRadius = UDim.new(0, 12)
+FrameCorner.Name = "FrameCorner"
+FrameCorner.Parent = Frame
+
+Line.Name = "Line"
+Line.Parent = Frame
+Line.BackgroundColor3 = Color3.fromRGB(4, 5, 12)
+Line.BackgroundTransparency = 2.000
+Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Line.BorderSizePixel = 0
+Line.Size = UDim2.new(0, 462, 0, 35)
+
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = Line
+
+name_Label_script.Name = "name_Label_script"
+name_Label_script.Parent = Line
+name_Label_script.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+name_Label_script.BackgroundTransparency = 1.000
+name_Label_script.BorderColor3 = Color3.fromRGB(0, 0, 0)
+name_Label_script.BorderSizePixel = 0
+name_Label_script.Position = UDim2.new(0.0173160173, 0, 0, 0)
+name_Label_script.Size = UDim2.new(0, 454, 0, 31)
+name_Label_script.Font = Enum.Font.SourceSans
+name_Label_script.Text = name
+name_Label_script.TextColor3 = Color3.fromRGB(255, 255, 255)
+name_Label_script.TextSize = 23.000
+name_Label_script.TextXAlignment = Enum.TextXAlignment.Left
+
+TabsFrame.Name = "TabsFrame"
+TabsFrame.Parent = Frame
+TabsFrame.BackgroundColor3 = Color3.fromRGB(8, 12, 18)
+TabsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabsFrame.BorderSizePixel = 0
+TabsFrame.Position = UDim2.new(0.0173160173, 0, 0.150000006, 0)
+TabsFrame.Size = UDim2.new(0, 111, 0, 248)
+
+TabsFrameCorner.CornerRadius = UDim.new(0, 12)
+TabsFrameCorner.Name = "TabsFrameCorner"
+TabsFrameCorner.Parent = TabsFrame
+
+TabsScrollingFrame.Name = "TabsScrollingFrame"
+TabsScrollingFrame.Parent = TabsFrame
+TabsScrollingFrame.Active = true
+TabsScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabsScrollingFrame.BackgroundTransparency = 1.000
+TabsScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabsScrollingFrame.BorderSizePixel = 0
+TabsScrollingFrame.Size = UDim2.new(0, 111, 0, 248)
+TabsScrollingFrame.AutomaticSize = Enum.AutomaticSize.X
+TabsScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(8, 12, 18)
+
+
+
+
+local function MakeDraggable() 
+    local script = Instance.new('LocalScript', Frame)
+
+    local UIS = game:GetService("UserInputService")
+    function dragify(Frame)
+        dragToggle = nil
+        local dragSpeed = 0
+        dragInput = nil
+        dragStart = nil
+        local dragPos = nil
+        function updateInput(input)
+            local Delta = input.Position - dragStart
+            local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+            game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+        end
+        Frame.InputBegan:Connect(function(input)
+            if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+                dragToggle = true
+                dragStart = input.Position
+                startPos = Frame.Position
+                input.Changed:Connect(function()
+                    if input.UserInputState == Enum.UserInputState.End then
+                        dragToggle = false
+                    end
+                end)
+            end
+        end)
+        Frame.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                dragInput = input
+            end
+        end)
+        game:GetService("UserInputService").InputChanged:Connect(function(input)
+            if input == dragInput and dragToggle then
+                updateInput(input)
+            end
+        end)
+    end
+
+    dragify(script.Parent)
+end
+
+MakeDraggable()
+
+local PageT = {}
+
+function PageT:Tab(name,vis)
+    local TabButton = Instance.new("TextButton")
+    local TabButtonCorner = Instance.new("UICorner")
+    local Pages = Instance.new("Frame")
+    local PagesCorner = Instance.new("UICorner")
+    local Page = Instance.new("ScrollingFrame")
+    local PageListLayout = Instance.new("UIListLayout")
+    local TabsListLayout = Instance.new("UIListLayout")
+
+TabButton.Name = "TabButton"
+TabButton.Parent = TabsScrollingFrame
+TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabButton.BackgroundTransparency = 2.000
+TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabButton.BorderSizePixel = 0
+TabButton.Position = UDim2.new(0, 0, 0.0362903215, 0)
+TabButton.Size = UDim2.new(0, 111, 0, 29)
+TabButton.Font = Enum.Font.RobotoCondensed
+TabButton.Text = name
+TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TabButton.TextSize = 14.000
+
+TabButtonCorner.CornerRadius = UDim.new(0, 12)
+TabButtonCorner.Name = "TabButtonCorner"
+TabButtonCorner.Parent = TabButton
+
+Pages.Name = "Pages"
+Pages.Parent = Frame
+Pages.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Pages.BackgroundTransparency = 1.000
+Pages.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Pages.BorderSizePixel = 0
+Pages.Position = UDim2.new(0.25757575, 0, 0.150000006, 0)
+Pages.Size = UDim2.new(0, 343, 0, 255)
+
+PagesCorner.CornerRadius = UDim.new(0, 12)
+PagesCorner.Name = "PagesCorner"
+PagesCorner.Parent = Pages
+
+Page.Name = "Page"
+Page.Parent = Pages
+Page.Active = true
+Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Page.BackgroundTransparency = 1.000
+Page.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Page.BorderSizePixel = 0
+Page.Size = UDim2.new(0, 343, 0, 255)
+Page.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+Page.ScrollBarThickness = 4
+
+PageListLayout.Name = "PageListLayout"
+PageListLayout.Parent = Page
+PageListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+PageListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+PageListLayout.Padding = UDim.new(0, 7)
+
+TabsListLayout.Name = "TabsListLayout"
+TabsListLayout.Parent = TabsScrollingFrame
+TabsListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+TabButton.MouseButton1Down:Connect(function()
+    for i,v in pairs(PagesHolder:GetChildren()) do
+        if v:IsA("Frame") then
+            v.Visible = false
+        end
+        Page.Visible = true
+    end
+    game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.25),{BackgroundTransparency=0.60}):Play()
+    wait(0.01)
+    game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.25),{BackgroundTransparency=0.80}):Play()
+end)
+
+
+function PageElements:Button(text,callback)
+    local ButtonFrame = Instance.new("Frame")
+    local ButtonFrameCorner = Instance.new("UICorner")
+    local Button = Instance.new("TextButton")
+    local ButtonFrameimage = Instance.new("ImageLabel")
+    local callback = callback or function () end
+ButtonFrame.Name = "ButtonFrame"
+ButtonFrame.Parent = Page
+ButtonFrame.BackgroundColor3 = Color3.fromRGB(8, 12, 18)
+ButtonFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonFrame.BorderSizePixel = 0
+ButtonFrame.Position = UDim2.new(0.046647232, 0, 0, 0)
+ButtonFrame.Size = UDim2.new(0, 316, 0, 34)
+
+Button.Name = "Button"
+Button.Parent = ButtonFrame
+Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Button.BackgroundTransparency = 1.000
+Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Button.BorderSizePixel = 0
+Button.Position = UDim2.new(0.0379746817, 0, 0, 0)
+Button.Size = UDim2.new(0, 309, 0, 34)
+Button.Font = Enum.Font.SourceSans
+Button.Text = text or "Button"
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.TextSize = 14.000
+Button.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonFrameCorner.Name = "ButtonFrameCorner"
+ButtonFrameCorner.Parent = ButtonFrame
+
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+
+Button.MouseButton1Down:Connect(function()
+    game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(20, 20, 20)}):Play()
+    wait(0.01)
+    game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(25, 25, 25)}):Play()
+    pcall(callback)
+end)
+end
+
+
+function PageElements:Toggle(name,callback)
+local ToggleFrame = Instance.new("Frame")
+local ToggleFrameCorner = Instance.new("UICorner")
+local ToggleButton = Instance.new("TextButton")
+local Toggle = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local callback = callback or function () end
+local ToggleEnabled = false
+ToggleFrame.Name = "ToggleFrame"
+ToggleFrame.Parent = Page
+ToggleFrame.BackgroundColor3 = Color3.fromRGB(8, 12, 18)
+ToggleFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleFrame.BorderSizePixel = 0
+ToggleFrame.Position = UDim2.new(0.046647232, 0, 0, 0)
+ToggleFrame.Size = UDim2.new(0, 316, 0, 34)
+
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Parent = ToggleFrame
+ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.BackgroundTransparency = 1.000
+ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleButton.BorderSizePixel = 0
+ToggleButton.Position = UDim2.new(0.0379746817, 0, 0, 0)
+ToggleButton.Size = UDim2.new(0, 309, 0, 34)
+ToggleButton.Font = Enum.Font.SourceSans
+ToggleButton.Text = name or "toggle"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.TextSize = 14.000
+ToggleButton.TextXAlignment = Enum.TextXAlignment.Left
+
+ToggleFrameCorner.Name = "ToggleFrameCorner"
+ToggleFrameCorner.Parent = ToggleFrame
+
+ToggleColor.Name = "ToggleColor"
+ToggleColor.Parent = ToggleFrame
+ToggleColor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleColor.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleColor.BorderSizePixel = 0
+ToggleColor.Position = UDim2.new(0.886075974, 0, 0.117647059, 0)
+ToggleColor.Size = UDim2.new(0, 25, 0, 25)
+
+ToggleColorCorner.CornerRadius = UDim.new(0, 7)
+ToggleColorCorner.Name = "ToggleColorCorner"
+ToggleColorCorner.Parent = ToggleColor
+
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+
+ToggleButton.MouseButton1Down:Connect(function()
+    ToggleEnabled = not ToggleEnabled
+    if ToggleEnabled then 
+        game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 211, 0)}):Play()
+    else
+        game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(211, 0, 0)}):Play()
+    end
+    pcall(callback,ToggleEnabled)
+end)
+
+function PageElements:Textbox(name,txt,callback)
+local TextboxFrame = Instance.new("Frame")
+local TextboxFrameCorner = Instance.new("UICorner")
+local TextBoxLabel = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local callback = callback or function() end
+TextBoxFrame.Name = "TextBoxFrame"
+TextBoxFrame.Parent = Page
+TextBoxFrame.BackgroundColor3 = Color3.fromRGB(8, 12, 18)
+TextBoxFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBoxFrame.BorderSizePixel = 0
+TextBoxFrame.Position = UDim2.new(0.046647232, 0, 0, 0)
+TextBoxFrame.Size = UDim2.new(0, 316, 0, 34)
+
+TextBoxLabel.Name = "TextBoxLabel"
+TextBoxLabel.Parent = TextBox
+TextBoxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBoxLabel.BackgroundTransparency = 1.000
+TextBoxLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBoxLabel.BorderSizePixel = 0
+TextBoxLabel.Position = UDim2.new(-1.83809519, 0, -0.159999996, 0)
+TextBoxLabel.Size = UDim2.new(0, 309, 0, 34)
+TextBoxLabel.Font = Enum.Font.SourceSans
+TextBoxLabel.Text = name
+TextBoxLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBoxLabel.TextSize = 14.000
+TextBoxLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+TextBoxFrameCorner.Name = "TextBoxFrameCorner"
+TextBoxFrameCorner.Parent = TextBoxFrame
+
+TextBox.Parent = TextBoxFrame
+TextBox.BackgroundColor3 = Color3.fromRGB(14, 21, 31)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.632911384, 0, 0.117647059, 0)
+TextBox.Size = UDim2.new(0, 105, 0, 25)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = txt or ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 14.000
+
+UICorner_2.Parent = TextBox
+
+
+
+
+local PageElements = {}
+
+function PageElements:Label(text,color)
+    local LabelFrame = Instance.new("Frame")
+    local LabelFrameFrameCorner = Instance.new("UICorner")
+    local Label = Instance.new("TextLabel")
+    local LabelFunction = {}
+LabelFrame.Name = "LabelFrame"
+LabelFrame.Parent = Page
+LabelFrame.BackgroundColor3 = Color3.fromRGB(8, 12, 18)
+LabelFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LabelFrame.BorderSizePixel = 0
+LabelFrame.Position = UDim2.new(0.046647232, 0, 0, 0)
+LabelFrame.Size = UDim2.new(0, 316, 0, 34)
+
+LabelFrameCorner.Name = "LabelFrameCorner"
+LabelFrameCorner.Parent = LabelFrame
+
+Label.Name = "Label"
+Label.Parent = LabelFrame
+Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Label.BackgroundTransparency = 1.000
+Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Label.BorderSizePixel = 0
+Label.Size = UDim2.new(0, 316, 0, 34)
+Label.Font = Enum.Font.SourceSans
+Label.Text = text or "Label"
+Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label.TextSize = 14.000
+
+        ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
+
+        function LabelFunction:Set(newtxt,newColor)
+            Label.Text = newtxt
+            Label.TextColor3 = newColor
+end
+    return LabelFunction
+end
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = Frame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundTransparency = 2.000
+CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.949999988, -5, 0.0280000009, -4)
+CloseButton.Size = UDim2.new(0, 22, 0, 22)
+CloseButton.Image = "rbxassetid://10747384394"
+CloseButton.MouseButton1Down:Connect(function()
+    for _,v in pairs(game.CoreGui:GetChildren()) do
+        if v.Name == "BakiUi"then
+            v:Destroy()
+        end
+    end
+end)
+
+
+
+ShadowHolder.Name = "ShadowHolder"
+ShadowHolder.Parent = Frame
+ShadowHolder.BackgroundTransparency = 1.000
+ShadowHolder.BorderSizePixel = 0
+ShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+ShadowHolder.ZIndex = 0
+
+DropShadow.Name = "DropShadow"
+DropShadow.Parent = ShadowHolder
+DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+DropShadow.BackgroundTransparency = 1.000
+DropShadow.BorderSizePixel = 0
+DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+DropShadow.Size = UDim2.new(1, 47, 1, 47)
+DropShadow.ZIndex = 0
+DropShadow.Image = "rbxassetid://6014261993"
+DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+DropShadow.ImageTransparency = 0.500
+DropShadow.ScaleType = Enum.ScaleType.Slice
+DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+
+
+end
+end
+return PageElements
+end
+return PageT
+end
+
+local win = Lib:Window("Hi")
+local tab1 = win:Tab("1",true)
+
+local Lb = tab1:Label("This is Tab 1",Color3.fromRGB(255, 255, 255))
+wait(1)
+Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
+tab1:Button("print hi",function()
+print("hi")
+end)
+
+tab1:Toggle("Toggle",function(x)
+print(x)
+end)
+
+tab1:Textbox("textbox","hola",function(x)
+print(x)
+end)
