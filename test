@@ -1,21 +1,4 @@
 
-local win = Lib:Window("Hi")
-local tab1 = win:Tab("1",true)
-
-local Lb = tab1:Label("This is Tab 1",Color3.fromRGB(255, 255, 255))
-wait(1)
-Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
-tab1:Button("print hi",function()
-print("hi")
-end)
-
-tab1:Toggle("Toggle",function(x)
-print(x)
-end)
-
-tab1:Textbox("textbox","hola",function(x)
-print(x)
-end)
 
 
 for _,v in pairs(game.CoreGui:GetChildren()) do
@@ -112,6 +95,26 @@ TabsScrollingFrame.AutomaticSize = Enum.AutomaticSize.X
 TabsScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(8, 12, 18)
 
 
+ShadowHolder.Name = "ShadowHolder"
+ShadowHolder.Parent = Frame
+ShadowHolder.BackgroundTransparency = 1.000
+ShadowHolder.BorderSizePixel = 0
+ShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+ShadowHolder.ZIndex = 0
+
+DropShadow.Name = "DropShadow"
+DropShadow.Parent = ShadowHolder
+DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+DropShadow.BackgroundTransparency = 1.000
+DropShadow.BorderSizePixel = 0
+DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+DropShadow.Size = UDim2.new(1, 47, 1, 47)
+DropShadow.ZIndex = 0
+DropShadow.Image = "rbxassetid://6014261993"
+DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+DropShadow.ImageTransparency = 0.500
+DropShadow.ScaleType = Enum.ScaleType.Slice
+DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
 
 local function MakeDraggable() 
@@ -437,26 +440,6 @@ end)
 
 
 
-ShadowHolder.Name = "ShadowHolder"
-ShadowHolder.Parent = Frame
-ShadowHolder.BackgroundTransparency = 1.000
-ShadowHolder.BorderSizePixel = 0
-ShadowHolder.Size = UDim2.new(1, 0, 1, 0)
-ShadowHolder.ZIndex = 0
-
-DropShadow.Name = "DropShadow"
-DropShadow.Parent = ShadowHolder
-DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-DropShadow.BackgroundTransparency = 1.000
-DropShadow.BorderSizePixel = 0
-DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-DropShadow.Size = UDim2.new(1, 47, 1, 47)
-DropShadow.ZIndex = 0
-DropShadow.Image = "rbxassetid://6014261993"
-DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-DropShadow.ImageTransparency = 0.500
-DropShadow.ScaleType = Enum.ScaleType.Slice
-DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
 
 end
@@ -465,3 +448,21 @@ return PageElements
 end
 return PageT
 end
+
+local win = Lib:Window("Hi")
+local tab1 = win:Tab("1",true)
+
+local Lb = tab1:Label("This is Tab 1",Color3.fromRGB(255, 255, 255))
+wait(1)
+Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
+tab1:Button("print hi",function()
+print("hi")
+end)
+
+tab1:Toggle("Toggle",function(x)
+print(x)
+end)
+
+tab1:Textbox("textbox","hola",function(x)
+print(x)
+end)
