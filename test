@@ -1,4 +1,4 @@
--- nice 
+-- on top
 
 for _,v in pairs(game.CoreGui:GetChildren()) do
 	if v.Name == "BakiUi"then
@@ -246,7 +246,6 @@ Button.TextXAlignment = Enum.TextXAlignment.Left
 ButtonFrameCorner.Name = "ButtonFrameCorner"
 ButtonFrameCorner.Parent = ButtonFrame
 
-ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
 
 Button.MouseButton1Down:Connect(function()
     game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(20, 20, 20)}):Play()
@@ -254,7 +253,7 @@ Button.MouseButton1Down:Connect(function()
     game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(25, 25, 25)}):Play()
     pcall(callback)
 end)
-end
+
 
 
 function PageElements:Toggle(name,callback)
