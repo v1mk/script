@@ -204,7 +204,7 @@ TabsListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 TabButton.MouseButton1Down:Connect(function()
     for i,v in pairs(Pages:GetChildren()) do
-        if v:IsA("Frame") then
+        if v:IsA("ScrollingFrame") then
             v.Visible = false
         end
         Page.Visible = true
