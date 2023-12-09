@@ -15,7 +15,8 @@ function Lib:Window(name,key)
 	local DropShadow = Instance.new("ImageLabel")
 	
 	local TabsFrame = Instance.new("Frame")
-	local TabsCorner = Instance.new("UICorner")
+	local TabsFrameCorner = Instance.new("UICorner")
+    local TabsCorner = Instance.new("UICorner")
 	local TabsScrollingFrame = Instance.new("ScrollingFrame")
 
 	local Line = Instance.new("Frame")
