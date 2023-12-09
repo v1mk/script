@@ -1,4 +1,22 @@
 
+local win = Lib:Window("Hi")
+local tab1 = win:Tab("1",true)
+
+local Lb = tab1:Label("This is Tab 1",Color3.fromRGB(255, 255, 255))
+wait(1)
+Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
+tab1:Button("print hi",function()
+print("hi")
+end)
+
+tab1:Toggle("Toggle",function(x)
+print(x)
+end)
+
+tab1:Textbox("textbox","hola",function(x)
+print(x)
+end)
+
 
 for _,v in pairs(game.CoreGui:GetChildren()) do
 	if v.Name == "BakiUi"then
@@ -447,21 +465,3 @@ return PageElements
 end
 return PageT
 end
-
-local win = Lib:Window("Hi")
-local tab1 = win:Tab("1",true)
-
-local Lb = tab1:Label("This is Tab 1",Color3.fromRGB(255, 255, 255))
-wait(1)
-Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
-tab1:Button("print hi",function()
-print("hi")
-end)
-
-tab1:Toggle("Toggle",function(x)
-print(x)
-end)
-
-tab1:Textbox("textbox","hola",function(x)
-print(x)
-end)
