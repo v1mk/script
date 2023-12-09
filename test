@@ -16,17 +16,18 @@ function Lib:Window(name,key)
 	
 	local TabsFrame = Instance.new("Frame")
 	local TabsCorner = Instance.new("UICorner")
-	
+	local TabsScrollingFrame = Instance.new("ScrollingFrame")
+
 	local Line = Instance.new("Frame")
 	local LineCorner = Instance.new("UICorner")
 	local name_Label_script = Instance.new("TextLabel")
 	
 	local Pages = Instance.new("Frame")
-	
+    
     local CloseButton = Instance.new("ImageButton")
 
 BakiUi.Name = "BakiUi"
-BakiUi.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+BakiUi.Parent = game.CoreGui
 BakiUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = BakiUi
