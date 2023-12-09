@@ -1,4 +1,5 @@
--- nice
+-- nice 
+
 for _,v in pairs(game.CoreGui:GetChildren()) do
 	if v.Name == "BakiUi"then
 		v:Destroy()
@@ -218,8 +219,8 @@ function PageElements:Button(text,callback)
     local ButtonFrame = Instance.new("Frame")
     local ButtonFrameCorner = Instance.new("UICorner")
     local Button = Instance.new("TextButton")
-    local ButtonFrameimage = Instance.new("ImageLabel")
     local callback = callback or function () end
+
 ButtonFrame.Name = "ButtonFrame"
 ButtonFrame.Parent = Page
 ButtonFrame.BackgroundColor3 = Color3.fromRGB(8, 12, 18)
