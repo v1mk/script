@@ -1,4 +1,4 @@
-
+-- okay
 
 
 for _,v in pairs(game.CoreGui:GetChildren()) do
@@ -452,9 +452,6 @@ end
 local win = Lib:Window("Hi")
 local tab1 = win:Tab("1",true)
 
-local Lb = tab1:Label("This is Tab 1",Color3.fromRGB(255, 255, 255))
-wait(1)
-Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
 tab1:Button("print hi",function()
 print("hi")
 end)
