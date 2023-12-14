@@ -239,7 +239,6 @@ Section:NewToggle("Loop Fling", "", function(s)
 	end
 end)
 
-local plr
 Section:NewTextBox("Name Player", "Full Name", function(txt)
 	plr = txt
 end)
