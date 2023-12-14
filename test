@@ -6,8 +6,8 @@ local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Fling")
 
 
-Section:NewToggle("ToggleText", "ToggleInfo", function(state)
-    if state then
+Section:NewToggle("Loop Fling", "", function(s)
+    if s then
 		getgenv().ok = true
 		if getgenv().ok == true then
 			local Targets = {plr}
@@ -83,7 +83,7 @@ Section:NewToggle("ToggleText", "ToggleInfo", function(state)
 				   getgenv().OldPos = RootPart.CFrame
 			   end
 			   if THumanoid and THumanoid.Sit and not AllBool then
-				   return Message("Error Occurred", "Targeting is sitting", 5) -- u can remove dis part if u want lol
+				   return print("u can remove dis part if u want lol") -- u can remove dis part if u want lol
 			   end
 			   if THead then
 				   workspace.CurrentCamera.CameraSubject = THead
@@ -210,11 +210,11 @@ Section:NewToggle("ToggleText", "ToggleInfo", function(state)
 			   until (RootPart.Position - getgenv().OldPos.p).Magnitude < 25
 			   workspace.FallenPartsDestroyHeight = getgenv().FPDH
 		   else
-			   return Message("Error Occurred", "Random error", 5)
+			   return print("Error Occurred")
 		   end
 		end
 		
-		if not Welcome then Message("Script by AnthonyIsntHere", "Enjoy!", 5) end
+		if not Welcome then print("Script by AnthonyIsntHere") end
 		getgenv().Welcome = true
 		if Targets[1] then for _,x in next, Targets do GetPlayer(x) end else return end
 		
@@ -235,5 +235,11 @@ Section:NewToggle("ToggleText", "ToggleInfo", function(state)
 		end
 	else
 		getgenv().ok = false
+		print"false"
 	end
+end)
+
+local plr
+Section:NewTextBox("Name Player", "Full Name", function(txt)
+	plr = txt
 end)
