@@ -1,3 +1,5 @@
+--x
+
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
 local Window = Library.CreateLib("BakiHub", "GrapeTheme")
 
@@ -241,7 +243,7 @@ Section:NewToggle("Loop Fling", "", function(s)
 
 		until Loopvoid == false
 	else
-		Loopvoid == false
+		Loopvoid = false
 	end
 end)
 
