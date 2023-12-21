@@ -1,5 +1,5 @@
 for _,v in pairs(game.CoreGui:GetChildren()) do
-	if v.Name == "mk"then
+	if v.Name == "AtomicUi"then
 		v:Destroy()
 	end
 end
@@ -7,7 +7,7 @@ end
 local Lib = {}
 
 function Lib:Window(name,key)
-	local mk = Instance.new("ScreenGui")
+	local AtomicUi = Instance.new("ScreenGui")
 	local Frame = Instance.new("Frame")
 	local FrameCorner = Instance.new("UICorner")
 	
@@ -25,11 +25,11 @@ function Lib:Window(name,key)
 	
     local CloseButton = Instance.new("ImageButton")
 
-	mk.Name = "mk"
-	mk.Parent = game.CoreGui
-	mk.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	AtomicUi.Name = "AtomicUi"
+	AtomicUi.Parent = game.CoreGui
+	AtomicUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-	Frame.Parent = mk
+	Frame.Parent = AtomicUi
 	Frame.BackgroundColor3 = Color3.fromRGB(30, 0, 0)
 	Frame.BackgroundTransparency = 0.100
 	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -114,7 +114,7 @@ function Lib:Window(name,key)
     CloseButton.Image = "rbxassetid://10747384394"
     CloseButton.MouseButton1Down:Connect(function()
         for _,v in pairs(game.CoreGui:GetChildren()) do
-            if v.Name == "mk"then
+            if v.Name == "AtomicUi"then
                 v:Destroy()
             end
         end
