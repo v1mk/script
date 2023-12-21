@@ -349,9 +349,9 @@ function Lib:Window(name,key)
             ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
 
             Button.MouseButton1Down:Connect(function()
-                game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(20, 20, 20)}):Play()
+                game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(14, 18, 30)}):Play()
                 wait(0.01)
-                game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(25, 25, 25)}):Play()
+                game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(14, 18, 30)}):Play()
                 pcall(callback)
             end)
         end
@@ -407,7 +407,7 @@ function Lib:Window(name,key)
             ToggleButton.MouseButton1Down:Connect(function()
                 ToggleEnabled = not ToggleEnabled
                 if ToggleEnabled then 
-                    game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 211, 0)}):Play()
+                    game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 255, 0)}):Play()
                 else
                     game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(255, 255, 255)}):Play()
                 end
