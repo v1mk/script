@@ -1,488 +1,698 @@
--- okaa
+local mK = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local MainCorner = Instance.new("UICorner")
+local Fly = Instance.new("TextButton")
+local FlyGradient = Instance.new("UIGradient")
+local FlyCorner = Instance.new("UICorner")
+local FlyShadowHolder = Instance.new("Frame")
+local FlyShadow = Instance.new("ImageLabel")
+local ErenHub = Instance.new("TextButton")
+local ErenHubGradient = Instance.new("UIGradient")
+local ErenHubCorner = Instance.new("UICorner")
+local ErenHubShadowHolder = Instance.new("Frame")
+local ErenHubShadow = Instance.new("ImageLabel")
+local Label = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local ImageButton = Instance.new("ImageButton")
+local MainStroke = Instance.new("UIStroke")
+local MainGradient = Instance.new("UIGradient")
 
-for _,v in pairs(game.CoreGui:GetChildren()) do
-	if v.Name == "BakiUi"then
-		v:Destroy()
-	end
-end
+mK.Name = "mK"
+mK.Parent = game.CoreGui
+mK.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = mK
+Main.Active = true
+Main.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.ClipsDescendants = true
+Main.Position = UDim2.new(0.439127326, 0, 0.546101272, 0)
+Main.Size = UDim2.new(0, 191, 0, 59)
+
+MainCorner.CornerRadius = UDim.new(0, 12)
+MainCorner.Name = "MainCorner"
+MainCorner.Parent = Main
+
+Fly.Name = "Fly"
+Fly.Parent = Main
+Fly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Fly.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Fly.BorderSizePixel = 0
+Fly.Position = UDim2.new(0.0555195995, 0, 0.441176474, 0)
+Fly.Size = UDim2.new(0, 80, 0, 22)
+Fly.Font = Enum.Font.RobotoCondensed
+Fly.Text = "Fly"
+Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fly.TextSize = 14.000
+Fly.MouseButton1Down:connect(function()
+	local main = Instance.new("ScreenGui")
+	local Frame = Instance.new("Frame")
+	local up = Instance.new("TextButton")
+	local down = Instance.new("TextButton")
+	local onof = Instance.new("TextButton")
+	local TextLabel = Instance.new("TextLabel")
+	local plus = Instance.new("TextButton")
+	local speed = Instance.new("TextLabel")
+	local mine = Instance.new("TextButton")
+	local closebutton = Instance.new("TextButton")
+	local mini = Instance.new("TextButton")
+	local mini2 = Instance.new("TextButton")
+
+	main.Name = "main"
+	main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	main.ResetOnSpawn = false
+
+	Frame.Parent = main
+	Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
+	Frame.Size = UDim2.new(0, 190, 0, 57)
+
+	up.Name = "up"
+	up.Parent = Frame
+	up.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	up.Size = UDim2.new(0, 44, 0, 28)
+	up.Font = Enum.Font.SourceSans
+	up.Text = "↑"
+	up.TextColor3 = Color3.fromRGB(0, 0, 0)
+	up.TextSize = 14.000
+
+	down.Name = "down"
+	down.Parent = Frame
+	down.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	down.Position = UDim2.new(0, 0, 0.491228074, 0)
+	down.Size = UDim2.new(0, 44, 0, 28)
+	down.Font = Enum.Font.SourceSans
+	down.Text = "↓"
+	down.TextColor3 = Color3.fromRGB(0, 0, 0)
+	down.TextSize = 14.000
+
+	onof.Name = "onof"
+	onof.Parent = Frame
+	onof.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
+	onof.Size = UDim2.new(0, 56, 0, 28)
+	onof.Font = Enum.Font.Michroma
+	onof.Text = "FLY"
+	onof.TextColor3 = Color3.fromRGB(0, 0, 0)
+	onof.TextSize = 14.000
+
+	TextLabel.Parent = Frame
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
+	TextLabel.Size = UDim2.new(0, 100, 0, 28)
+	TextLabel.Font = Enum.Font.RobotoCondensed
+	TextLabel.Text = "Fly mK"
+	TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14.000
+	TextLabel.TextWrapped = true
+
+	plus.Name = "plus"
+	plus.Parent = Frame
+	plus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	plus.Position = UDim2.new(0.231578946, 0, 0, 0)
+	plus.Size = UDim2.new(0, 45, 0, 28)
+	plus.Font = Enum.Font.SourceSans
+	plus.Text = "+"
+	plus.TextColor3 = Color3.fromRGB(0, 0, 0)
+	plus.TextScaled = true
+	plus.TextSize = 14.000
+	plus.TextWrapped = true
+
+	speed.Name = "speed"
+	speed.Parent = Frame
+	speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
+	speed.Size = UDim2.new(0, 44, 0, 28)
+	speed.Font = Enum.Font.SourceSans
+	speed.Text = "1"
+	speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+	speed.TextScaled = true
+	speed.TextSize = 14.000
+	speed.TextWrapped = true
+
+	mine.Name = "mine"
+	mine.Parent = Frame
+	mine.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+	mine.Size = UDim2.new(0, 45, 0, 29)
+	mine.Font = Enum.Font.SourceSans
+	mine.Text = "-"
+	mine.TextColor3 = Color3.fromRGB(0, 0, 0)
+	mine.TextScaled = true
+	mine.TextSize = 14.000
+	mine.TextWrapped = true
+
+	closebutton.Name = "Close"
+	closebutton.Parent = main.Frame
+	closebutton.BackgroundColor3 = Color3.fromRGB(255, 5, 5)
+	closebutton.Font = "Michroma"
+	closebutton.Size = UDim2.new(0, 45, 0, 28)
+	closebutton.Text = "x"
+	closebutton.TextSize = 30
+	closebutton.Position =  UDim2.new(0, 0, -1, 27)
+
+	mini.Name = "minimize"
+	mini.Parent = main.Frame
+	mini.BackgroundColor3 = Color3.fromRGB(117, 117, 117)
+	mini.Font = "Michroma"
+	mini.Size = UDim2.new(0, 45, 0, 28)
+	mini.Text = "-"
+	mini.TextSize = 40
+	mini.Position = UDim2.new(0, 44, -1, 27)
+
+	mini2.Name = "minimize2"
+	mini2.Parent = main.Frame
+	mini2.BackgroundColor3 = Color3.fromRGB(117, 117, 117)
+	mini2.Font = "SourceSans"
+	mini2.Size = UDim2.new(0, 45, 0, 28)
+	mini2.Text = "+"
+	mini2.TextSize = 40
+	mini2.Position = UDim2.new(0, 44, -1, 57)
+	mini2.Visible = false
+
+	speeds = 1
+
+	local speaker = game:GetService("Players").LocalPlayer
+
+	local chr = game.Players.LocalPlayer.Character
+	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+	nowe = false
+
+	game:GetService("StarterGui"):SetCore("SendNotification", { 
+		Title = "Fly";
+		Text = "Fly  by mK";
+		Icon = "http://www.roblox.com/asset/?id=10421528316"})
+	Duration = 5;
+
+	Frame.Active = true -- main = gui
+	Frame.Draggable = true
+
+	onof.MouseButton1Down:connect(function()
+
+		if nowe == true then
+			nowe = false
+
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+			speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+		else 
+			nowe = true
 
 
 
-local Lib = {}
+			for i = 1, speeds do
+				spawn(function()
 
-function Lib:Window(name,key)
-local BakiUi = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local FrameCorner = Instance.new("UICorner")
-local FrameStroke = Instance.new("UIStroke")
-
-local TabFrame = Instance.new("Frame")
-local TabsCorner = Instance.new("UICorner")
-local TabsStroke = Instance.new("UIStroke")
-
-local TabsFrameListLayout = Instance.new("UIListLayout")
-
-local Line = Instance.new("Frame")
-local BakiLabel = Instance.new("TextLabel")
-
-local Pages = Instance.new("Frame")
+					local hb = game:GetService("RunService").Heartbeat	
 
 
-local FrameShadowHolder = Instance.new("Frame")
-local DropShadow = Instance.new("ImageLabel")
+					tpwalking = true
+					local chr = game.Players.LocalPlayer.Character
+					local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+					while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+						if hum.MoveDirection.Magnitude > 0 then
+							chr:TranslateBy(hum.MoveDirection)
+						end
+					end
 
-local CloseButton = Instance.new("ImageButton")
+				end)
+			end
+			game.Players.LocalPlayer.Character.Animate.Disabled = true
+			local Char = game.Players.LocalPlayer.Character
+			local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
 
-BakiUi.Name = "BakiUi"
-BakiUi.Parent = game.CoreGui
-BakiUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+			for i,v in next, Hum:GetPlayingAnimationTracks() do
+				v:AdjustSpeed(0)
+			end
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+			speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+			speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+		end
 
-Frame.Parent = BakiUi
-Frame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.311058074, 0, 0.306733161, 0)
-Frame.Size = UDim2.new(0, 371, 0, 275)
 
-FrameCorner.Name = "FrameCorner"
-FrameCorner.Parent = Frame
 
-FrameStroke.Color = Color3.fromRGB(255, 255, 255)
-FrameStroke.Thickness = 7
-FrameStroke.Name = "FrameStroke"
-FrameStroke.Parent = Frame
 
-TabFrame.Name = "TabFrame"
-TabFrame.Parent = Frame
-TabFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-TabFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TabFrame.BorderSizePixel = 0
-TabFrame.Position = UDim2.new(0.0177897736, 0, 0.141818181, 0)
-TabFrame.Size = UDim2.new(0, 97, 0, 216)
+		if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
 
-TabsCorner.CornerRadius = UDim.new(0, 4)
-TabsCorner.Name = "TabsCorner"
-TabsCorner.Parent = TabFrame
 
-TabsStroke.Color = Color3.fromRGB(255, 255, 255)
-TabsStroke.Name = "TabsStroke"
-TabsStroke.Parent = TabFrame
 
-Line.Name = "Line"
-Line.Parent = Frame
-Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Line.BackgroundTransparency = 1.000
-Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Line.BorderSizePixel = 0
-Line.Size = UDim2.new(0, 341, 0, 31)
+			local plr = game.Players.LocalPlayer
+			local torso = plr.Character.Torso
+			local flying = true
+			local deb = true
+			local ctrl = {f = 0, b = 0, l = 0, r = 0}
+			local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+			local maxspeed = 50
+			local speed = 0
 
-BakiLabel.Name = "BakiLabel"
-BakiLabel.Parent = Line
-BakiLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-BakiLabel.BackgroundTransparency = 1.000
-BakiLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BakiLabel.BorderSizePixel = 0
-BakiLabel.Position = UDim2.new(0.0428151786, 0, -0.0322580636, 0)
-BakiLabel.Size = UDim2.new(0, 320, 0, 31)
-BakiLabel.Font = Enum.Font.RobotoCondensed
-BakiLabel.Text = name
-BakiLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-BakiLabel.TextSize = 20.000
-BakiLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-CloseButton.Name = "CloseButton"
-CloseButton.Parent = Frame
-CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-CloseButton.BackgroundTransparency = 2.000
-CloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CloseButton.BorderSizePixel = 0
-CloseButton.Position = UDim2.new(0.949999988, -5, 0.0280000009, -4)
-CloseButton.Size = UDim2.new(0, 22, 0, 22)
-CloseButton.Image = "rbxassetid://10747384394"
-CloseButton.MouseButton1Down:Connect(function()
-    for _,v in pairs(game.CoreGui:GetChildren()) do
-        if v.Name == "BakiUi"then
-            v:Destroy()
-        end
-    end
+			local bg = Instance.new("BodyGyro", torso)
+			bg.P = 9e4
+			bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+			bg.cframe = torso.CFrame
+			local bv = Instance.new("BodyVelocity", torso)
+			bv.velocity = Vector3.new(0,0.1,0)
+			bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+			if nowe == true then
+				plr.Character.Humanoid.PlatformStand = true
+			end
+			while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+				game:GetService("RunService").RenderStepped:Wait()
+
+				if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+					speed = speed+.5+(speed/maxspeed)
+					if speed > maxspeed then
+						speed = maxspeed
+					end
+				elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+					speed = speed-1
+					if speed < 0 then
+						speed = 0
+					end
+				end
+				if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+					bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+					lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+				elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+					bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				else
+					bv.velocity = Vector3.new(0,0,0)
+				end
+				--	game.Players.LocalPlayer.Character.Animate.Disabled = true
+				bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+			end
+			ctrl = {f = 0, b = 0, l = 0, r = 0}
+			lastctrl = {f = 0, b = 0, l = 0, r = 0}
+			speed = 0
+			bg:Destroy()
+			bv:Destroy()
+			plr.Character.Humanoid.PlatformStand = false
+			game.Players.LocalPlayer.Character.Animate.Disabled = false
+			tpwalking = false
+
+
+
+
+		else
+			local plr = game.Players.LocalPlayer
+			local UpperTorso = plr.Character.UpperTorso
+			local flying = true
+			local deb = true
+			local ctrl = {f = 0, b = 0, l = 0, r = 0}
+			local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+			local maxspeed = 50
+			local speed = 0
+
+
+			local bg = Instance.new("BodyGyro", UpperTorso)
+			bg.P = 9e4
+			bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+			bg.cframe = UpperTorso.CFrame
+			local bv = Instance.new("BodyVelocity", UpperTorso)
+			bv.velocity = Vector3.new(0,0.1,0)
+			bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+			if nowe == true then
+				plr.Character.Humanoid.PlatformStand = true
+			end
+			while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+				wait()
+
+				if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+					speed = speed+.5+(speed/maxspeed)
+					if speed > maxspeed then
+						speed = maxspeed
+					end
+				elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+					speed = speed-1
+					if speed < 0 then
+						speed = 0
+					end
+				end
+				if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+					bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+					lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+				elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+					bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				else
+					bv.velocity = Vector3.new(0,0,0)
+				end
+
+				bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+			end
+			ctrl = {f = 0, b = 0, l = 0, r = 0}
+			lastctrl = {f = 0, b = 0, l = 0, r = 0}
+			speed = 0
+			bg:Destroy()
+			bv:Destroy()
+			plr.Character.Humanoid.PlatformStand = false
+			game.Players.LocalPlayer.Character.Animate.Disabled = false
+			tpwalking = false
+
+
+
+		end
+
+
+
+
+
+	end)
+
+	local tis
+
+	up.MouseButton1Down:connect(function()
+		tis = up.MouseEnter:connect(function()
+			while tis do
+				wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,1,0)
+			end
+		end)
+	end)
+
+	up.MouseLeave:connect(function()
+		if tis then
+			tis:Disconnect()
+			tis = nil
+		end
+	end)
+
+	local dis
+
+	down.MouseButton1Down:connect(function()
+		dis = down.MouseEnter:connect(function()
+			while dis do
+				wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-1,0)
+			end
+		end)
+	end)
+
+	down.MouseLeave:connect(function()
+		if dis then
+			dis:Disconnect()
+			dis = nil
+		end
+	end)
+
+
+	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+		wait(0.7)
+		game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+		game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+	end)
+
+
+	plus.MouseButton1Down:connect(function()
+		speeds = speeds + 1
+		speed.Text = speeds
+		if nowe == true then
+
+
+			tpwalking = false
+			for i = 1, speeds do
+				spawn(function()
+
+					local hb = game:GetService("RunService").Heartbeat	
+
+
+					tpwalking = true
+					local chr = game.Players.LocalPlayer.Character
+					local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+					while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+						if hum.MoveDirection.Magnitude > 0 then
+							chr:TranslateBy(hum.MoveDirection)
+						end
+					end
+
+				end)
+			end
+		end
+	end)
+	mine.MouseButton1Down:connect(function()
+		if speeds == 1 then
+			speed.Text = '-1 speed fly bruh'
+			wait(1)
+			speed.Text = speeds
+		else
+			speeds = speeds - 1
+			speed.Text = speeds
+			if nowe == true then
+				tpwalking = false
+				for i = 1, speeds do
+					spawn(function()
+
+						local hb = game:GetService("RunService").Heartbeat	
+
+
+						tpwalking = true
+						local chr = game.Players.LocalPlayer.Character
+						local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+						while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+							if hum.MoveDirection.Magnitude > 0 then
+								chr:TranslateBy(hum.MoveDirection)
+							end
+						end
+
+					end)
+				end
+			end
+		end
+	end)
+
+	closebutton.MouseButton1Click:Connect(function()
+		main:Destroy()
+	end)
+
+	mini.MouseButton1Click:Connect(function()
+		up.Visible = false
+		down.Visible = false
+		onof.Visible = false
+		plus.Visible = false
+		speed.Visible = false
+		mine.Visible = false
+		mini.Visible = false
+		mini2.Visible = true
+		main.Frame.BackgroundTransparency = 1
+		closebutton.Position =  UDim2.new(0, 0, -1, 57)
+	end)
+
+	mini2.MouseButton1Click:Connect(function()
+		up.Visible = true
+		down.Visible = true
+		onof.Visible = true
+		plus.Visible = true
+		speed.Visible = true
+		mine.Visible = true
+		mini.Visible = true
+		mini2.Visible = false
+		main.Frame.BackgroundTransparency = 0 
+		closebutton.Position =  UDim2.new(0, 0, -1, 27)
+	end)
 end)
 
-Pages.Name = "Pages"
-Pages.Parent = Frame
-Pages.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Pages.BackgroundTransparency = 1.000
-Pages.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Pages.BorderSizePixel = 0
-Pages.Position = UDim2.new(0.309973031, 0, 0.141818181, 0)
-Pages.Size = UDim2.new(0, 248, 0, 216)
+FlyGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 229, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(11, 56, 255))}
+FlyGradient.Name = "FlyGradient"
+FlyGradient.Parent = Fly
 
-FrameShadowHolder.Name = "FrameShadowHolder"
-FrameShadowHolder.Parent = Frame
-FrameShadowHolder.BackgroundTransparency = 1.000
-FrameShadowHolder.BorderSizePixel = 0
-FrameShadowHolder.Size = UDim2.new(1, 0, 1, 0)
-FrameShadowHolder.ZIndex = 0
+FlyCorner.Name = "FlyCorner"
+FlyCorner.Parent = Fly
 
-DropShadow.Name = "DropShadow"
-DropShadow.Parent = FrameShadowHolder
-DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-DropShadow.BackgroundTransparency = 1.000
-DropShadow.BorderSizePixel = 0
-DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-DropShadow.Size = UDim2.new(1, 47, 1, 47)
-DropShadow.ZIndex = 0
-DropShadow.Image = "rbxassetid://6014261993"
-DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-DropShadow.ImageTransparency = 0.500
-DropShadow.ScaleType = Enum.ScaleType.Slice
-DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+FlyShadowHolder.Name = "FlyShadowHolder"
+FlyShadowHolder.Parent = Fly
+FlyShadowHolder.BackgroundTransparency = 1.000
+FlyShadowHolder.BorderSizePixel = 0
+FlyShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+FlyShadowHolder.ZIndex = 0
+
+FlyShadow.Name = "FlyShadow"
+FlyShadow.Parent = FlyShadowHolder
+FlyShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+FlyShadow.BackgroundTransparency = 1.000
+FlyShadow.BorderSizePixel = 0
+FlyShadow.Position = UDim2.new(0.53125, 0, 0.386363626, 0)
+FlyShadow.Size = UDim2.new(0.9375, 47, 0.772727251, 47)
+FlyShadow.ZIndex = 0
+FlyShadow.Image = "rbxassetid://6015897843"
+FlyShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+FlyShadow.ImageTransparency = 0.500
+FlyShadow.ScaleType = Enum.ScaleType.Slice
+FlyShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+
+ErenHub.Name = "ErenHub"
+ErenHub.Parent = Main
+ErenHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ErenHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ErenHub.BorderSizePixel = 0
+ErenHub.Position = UDim2.new(0.544766963, 0, 0.441176474, 0)
+ErenHub.Size = UDim2.new(0, 80, 0, 22)
+ErenHub.Font = Enum.Font.RobotoCondensed
+ErenHub.Text = "Eren Hub"
+ErenHub.TextColor3 = Color3.fromRGB(0, 0, 0)
+ErenHub.TextSize = 14.000
+ErenHub.MouseButton1Down:connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification", { 
+		Title = "ErenHub";
+		Text = "ErenHub  by mK";
+		Icon = "http://www.roblox.com/asset/?id=10421528316"})
+		Duration = 5;
+	
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/v1mk/script/main/ErenHub"))()
+end)
+
+ErenHubGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(11, 56, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 229, 255))}
+ErenHubGradient.Name = "ErenHubGradient"
+ErenHubGradient.Parent = ErenHub
+
+ErenHubCorner.Name = "ErenHubCorner"
+ErenHubCorner.Parent = ErenHub
+
+ErenHubShadowHolder.Name = "ErenHubShadowHolder"
+ErenHubShadowHolder.Parent = ErenHub
+ErenHubShadowHolder.BackgroundTransparency = 1.000
+ErenHubShadowHolder.BorderSizePixel = 0
+ErenHubShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+ErenHubShadowHolder.ZIndex = 0
+
+ErenHubShadow.Name = "ErenHubShadow"
+ErenHubShadow.Parent = ErenHubShadowHolder
+ErenHubShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+ErenHubShadow.BackgroundTransparency = 1.000
+ErenHubShadow.BorderSizePixel = 0
+ErenHubShadow.Position = UDim2.new(0.506250024, 0, 0.215240479, 0)
+ErenHubShadow.Size = UDim2.new(1.01250005, 47, 0.430480957, 47)
+ErenHubShadow.ZIndex = 0
+ErenHubShadow.Image = "rbxassetid://6015897843"
+ErenHubShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+ErenHubShadow.ImageTransparency = 0.500
+ErenHubShadow.ScaleType = Enum.ScaleType.Slice
+ErenHubShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+
+Label.Name = "Label"
+Label.Parent = Main
+Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Label.BackgroundTransparency = 1.000
+Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Label.BorderSizePixel = 0
+Label.Position = UDim2.new(0.0785340294, 0, 0.0338983051, 0)
+Label.Size = UDim2.new(0, 70, 0, 15)
+Label.Font = Enum.Font.SourceSans
+Label.Text = "Baki Hub System"
+Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label.TextSize = 14.000
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 145, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(35, 15, 255))}
+UIGradient.Parent = Label
+
+ImageButton.Parent = Main
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.874345541, 0, 0.00897320267, 0)
+ImageButton.Size = UDim2.new(0, 17, 0, 20)
+ImageButton.Image = "rbxassetid://10747384394"
+ImageButton.MouseButton1Down:connect(function()
+	Main.Visible = false
+end)
+
+MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+MainStroke.Color = Color3.fromRGB(255, 255, 255)
+MainStroke.Thickness = 2
+MainStroke.Name = "MainStroke"
+MainStroke.Parent = Main
+
+MainGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.35, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(5, 105, 255))}
+MainGradient.Rotation = 2
+MainGradient.Name = "MainGradient"
+MainGradient.Parent = MainStroke
+
+-- Scripts:
+
+local function KFGPRNR_fake_script() -- Main.nice 
+	local script = Instance.new('LocalScript', Main)
+
+	local Uigradient = script.Parent.MainStroke.MainGradient
+	local runService = game:GetService("RunService")
+	
+	runService.RenderStepped:Connect(function()
+		Uigradient.Rotation += 2
+	end)
+end
+coroutine.wrap(KFGPRNR_fake_script)()
 
 local function MakeDraggable() 
-    local script = Instance.new('LocalScript', Frame)
+	local script = Instance.new('LocalScript', Main)
 
-    local UIS = game:GetService("UserInputService")
-    function dragify(Frame)
-        dragToggle = nil
-        local dragSpeed = 0
-        dragInput = nil
-        dragStart = nil
-        local dragPos = nil
-        function updateInput(input)
-            local Delta = input.Position - dragStart
-            local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-            game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
-        end
-        Frame.InputBegan:Connect(function(input)
-            if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-                dragToggle = true
-                dragStart = input.Position
-                startPos = Frame.Position
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then
-                        dragToggle = false
-                    end
-                end)
-            end
-        end)
-        Frame.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-                dragInput = input
-            end
-        end)
-        game:GetService("UserInputService").InputChanged:Connect(function(input)
-            if input == dragInput and dragToggle then
-                updateInput(input)
-            end
-        end)
-    end
+	local UIS = game:GetService("UserInputService")
+	function dragify(Main)
+		dragToggle = nil
+		local dragSpeed = 0
+		dragInput = nil
+		dragStart = nil
+		local dragPos = nil
+		function updateInput(input)
+			local Delta = input.Position - dragStart
+			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Main, TweenInfo.new(0.25), {Position = Position}):Play()
+		end
+		Main.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Main.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Main.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if input == dragInput and dragToggle then
+				updateInput(input)
+			end
+		end)
+	end
 
-    dragify(script.Parent)
+	dragify(script.Parent)
 end
 
 MakeDraggable()
-
-local PageT = {}
-
-function PageT:Tab(name,vis)
-    local TabButton = Instance.new("TextButton")
-
-    local TabsFrameListLayout = Instance.new("UIListLayout")
-
-    local Page = Instance.new("ScrollingFrame")
-    local PageListLayout = Instance.new("UIListLayout")
-
-    TabsFrameListLayout.Name = "TabsFrameListLayout"
-    TabsFrameListLayout.Parent = TabFrame
-    TabsFrameListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    TabsFrameListLayout.Padding = UDim.new(0, 7)
-
-    TabButton.Name = "TabButton"
-    TabButton.Parent = TabFrame
-    TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TabButton.BackgroundTransparency = 1.000
-    TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    TabButton.BorderSizePixel = 0
-    TabButton.Size = UDim2.new(0, 97, 0, 22)
-    TabButton.Text = name
-    TabButton.Font = Enum.Font.RobotoCondensed
-    TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TabButton.TextSize = 14.000
-
-    Page.Name = "Page"
-    Page.Parent = Pages
-    Page.Active = true
-    Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Page.BackgroundTransparency = 1.000
-    Page.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Page.BorderSizePixel = 0
-    Page.Size = UDim2.new(0, 248, 0, 216)
-    Page.CanvasSize = UDim2.new(0, 0, 0, 0)
-    Page.ScrollBarImageColor3 = Color3.fromRGB(29, 29, 29)
-    Page.ScrollBarThickness = 1
-
-    PageListLayout.Name = "PageListLayout"
-    PageListLayout.Parent = Page
-    PageListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    PageListLayout.Padding = UDim.new(0, 7)
-
-    TabButton.MouseButton1Down:Connect(function()
-        for i,v in pairs(Pages:GetChildren()) do
-            if v:IsA("Frame") then
-                v.Visible = false
-            end
-            Page.Visible = true
-        end
-        game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.25),{BackgroundTransparency=0.60}):Play()
-        wait(0.01)
-        game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.25),{BackgroundTransparency=0.80}):Play()
-end)
-
-
-local PageElements = {}
-
-
-function PageElements:Button(text,callback)
-    local ButtonFrame = Instance.new("Frame")
-    local ButtonFrameCorner = Instance.new("UICorner")
-    local Button = Instance.new("TextButton")
-    local ButtonFrameimage = Instance.new("ImageLabel")
-    local callback = callback or function () end
-
-
-ButtonFrame.Name = "ButtonFrame"
-ButtonFrame.Parent = Page
-ButtonFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-ButtonFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ButtonFrame.BorderSizePixel = 0
-ButtonFrame.Size = UDim2.new(0, 245, 0, 33)
-
-ButtonFrameCorner.CornerRadius = UDim.new(0, 5)
-ButtonFrameCorner.Name = "ButtonFrameCorner"
-ButtonFrameCorner.Parent = ButtonFrame
-
-Button.Name = "Button"
-Button.Parent = ButtonFrame
-Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Button.BackgroundTransparency = 2.000
-Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button.BorderSizePixel = 0
-Button.Position = UDim2.new(0.0196079798, 0, 0, 0)
-Button.Size = UDim2.new(0, 245, 0, 33)
-Button.Font = Enum.Font.RobotoCondensed
-Button.Text = text or "Button"
-Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-Button.TextSize = 14.000
-Button.TextXAlignment = Enum.TextXAlignment.Left
-
-ButtonFrameimage.Name = "ButtonFrameimage"
-ButtonFrameimage.Parent = ButtonFrame
-ButtonFrameimage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ButtonFrameimage.BackgroundTransparency = 2.000
-ButtonFrameimage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ButtonFrameimage.BorderSizePixel = 0
-ButtonFrameimage.Position = UDim2.new(0.895798266, 0, 0.151515156, 0)
-ButtonFrameimage.Size = UDim2.new(0, 19, 0, 23)
-ButtonFrameimage.Image = "rbxassetid://10734898355"
-
-Page.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
-
-
-Button.MouseButton1Down:Connect(function()
-    game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(20, 20, 20)}):Play()
-    wait(0.01)
-    game:GetService("TweenService"):Create(ButtonFrame,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(25, 25, 25)}):Play()
-    pcall(callback)
-    end)
-
-
-
-function PageElements:Label(text,color)
-    local LabelFrame = Instance.new("Frame")
-    local LabelFrameFrameCorner = Instance.new("UICorner")
-    local LabelFrameText = Instance.new("TextLabel")
-    local LabelFunction = {}
-LabelFrame.Name = "LabelFrame"
-LabelFrame.Parent = Page
-LabelFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-LabelFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LabelFrame.BorderSizePixel = 0
-LabelFrame.Position = UDim2.new(0, 0, 0.21296297, -13)
-LabelFrame.Size = UDim2.new(0, 245, 0, 33)
-
-LabelFrameFrameCorner.CornerRadius = UDim.new(0, 5)
-LabelFrameFrameCorner.Name = "LabelFrameFrameCorner"
-LabelFrameFrameCorner.Parent = LabelFrame
-
-LabelFrameText.Name = "LabelFrameText"
-LabelFrameText.Parent = LabelFrame
-LabelFrameText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LabelFrameText.BackgroundTransparency = 2.000
-LabelFrameText.BorderColor3 = Color3.fromRGB(0, 0, 0)
-LabelFrameText.BorderSizePixel = 0
-LabelFrameText.Position = UDim2.new(0.0490859672, 0, -0.0303030312, 0)
-LabelFrameText.Size = UDim2.new(0, 219, 0, 34)
-LabelFrameText.Text = text or "Label"
-LabelFrameText.Font = Enum.Font.RobotoCondensed
-LabelFrameText.TextColor3 = Color3.fromRGB(255, 255, 255)
-LabelFrameText.TextSize = 14.000
-
-Page.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
-
-function LabelFunction:Set(newtxt,newColor)
-    LabelFrameText.Text = newtxt
-    LabelFrameText.TextColor3 = newColor
-        end
-    return LabelFunction
-end
-
-function PageElements:Textbox(name,txt,callback)
-    local TextboxFrame = Instance.new("Frame")
-    local TextboxFrameCorner = Instance.new("UICorner")
-    local TextLabel = Instance.new("TextLabel")
-    local TextBox = Instance.new("TextBox")
-    local UICorner = Instance.new("UICorner")
-    local UIStroke = Instance.new("UIStroke")
-    local callback = callback or function() end
-
-
-TextboxFrame.Name = "TextboxFrame"
-TextboxFrame.Parent = Page
-TextboxFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-TextboxFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextboxFrame.BorderSizePixel = 0
-TextboxFrame.Position = UDim2.new(0.0289999992, 0, 0.400000006, -4)
-TextboxFrame.Size = UDim2.new(0, 245, 0, 33)
-
-TextboxFrameCorner.CornerRadius = UDim.new(0, 5)
-TextboxFrameCorner.Name = "TextboxFrameCorner"
-TextboxFrameCorner.Parent = TextboxFrame
-
-TextLabel.Parent = TextboxFrame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 2.000
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0199999996, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 349, 0, 33)
-TextLabel.Font = Enum.Font.RobotoCondensed
-TextLabel.Text = name
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 14.000
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-TextBox.Parent = TextboxFrame
-TextBox.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-TextBox.BackgroundTransparency = 0.050
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.550886869, 0, 0.0909090936, 0)
-TextBox.Size = UDim2.new(0, 97, 0, 26)
-TextBox.Font = Enum.Font.RobotoCondensed
-TextBox.Text = txt or ""
-TextBox.TextColor3 = Color3.fromRGB(254, 254, 254)
-TextBox.TextSize = 12.000
-
-UICorner.Parent = TextBox
-
-UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UIStroke.Color = Color3.fromRGB(18, 18, 18)
-UIStroke.Parent = TextBox
-
-TextBox.Focused:Connect(function()
-    game:GetService("TweenService"):Create(TextBox,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(20,20,20)}):Play()
-    TextBox.TextColor3 = Color3.fromRGB(254, 254, 254)
-end)
-
-Page.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
-
-TextBox.FocusLost:Connect(function()
-    game:GetService("TweenService"):Create(TextBox,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(17,17,17)}):Play()
-    callback(TextBox.Text)
-    TextBox.Text = txt
-    TextBox.TextColor3 = Color3.fromRGB(200, 200, 200)
-end)
-
-function PageElements:Toggle(name,callback)
-    local ToggleFrame = Instance.new("Frame")
-    local ToggleFrameCorner = Instance.new("UICorner")
-    local ToggleButton = Instance.new("TextButton")
-    local Toggle = Instance.new("Frame")
-    local UICorner_2 = Instance.new("UICorner")
-    local callback = callback or function () end
-    local ToggleEnabled = false
-
-ToggleFrame.Name = "ToggleFrame"
-ToggleFrame.Parent = Page
-ToggleFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-ToggleFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ToggleFrame.BorderSizePixel = 0
-ToggleFrame.Position = UDim2.new(0, 0, 0.537037015, 4)
-ToggleFrame.Size = UDim2.new(0, 245, 0, 33)
-
-ToggleFrameCorner.CornerRadius = UDim.new(0, 5)
-ToggleFrameCorner.Name = "ToggleFrameCorner"
-ToggleFrameCorner.Parent = ToggleFrame
-
-ToggleButton.Name = "ToggleButton"
-ToggleButton.Parent = ToggleFrame
-ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ToggleButton.BackgroundTransparency = 2.000
-ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ToggleButton.BorderSizePixel = 0
-ToggleButton.Position = UDim2.new(0.0197142698, 0, 0, 0)
-ToggleButton.Size = UDim2.new(0, 349, 0, 33)
-ToggleButton.Font = Enum.Font.RobotoCondensed
-ToggleButton.Text = name or "Toggle"
-ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleButton.TextSize = 14.000
-ToggleButton.TextXAlignment = Enum.TextXAlignment.Left
-
-Toggle.Name = "Toggle"
-Toggle.Parent = ToggleFrame
-Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Toggle.BorderSizePixel = 0
-Toggle.Position = UDim2.new(0.894109011, 0, 0.091697, 1)
-Toggle.Size = UDim2.new(0, 19, 0, 23)
-
-UICorner_2.CornerRadius = UDim.new(0, 4)
-UICorner_2.Parent = Toggle
-
-Page.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y)
-
-ToggleButton.MouseButton1Down:Connect(function()
-    ToggleEnabled = not ToggleEnabled
-    if ToggleEnabled then 
-        game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(0, 211, 0)}):Play()
-    else
-        game:GetService("TweenService"):Create(Toggle,TweenInfo.new(0.25),{BackgroundColor3=Color3.fromRGB(211, 0, 0)}):Play()
-    end
-    pcall(callback,ToggleEnabled)
-end)
-
-
-        end
-        return PageElements
-    end
-            return PageT
-end
-
-local win = Lib:Window("Bounty Hub / made by mK")
-local tab1 = win:Tab("1",true)
-
-local Lb = tab1:Label("Welcome",Color3.fromRGB(255, 255, 255))
-
-wait(1)
-
-Lb:Set("Label Update !",Color3.fromRGB(255, 0, 0))
-tab1:Button("print hi",function()
-    print("hi")
-end)
-
-tab1:Toggle("Toggle",function(x)
-    print(x)
-end)
-
-tab1:Textbox("textbox","hola",function(x)
-    print(x)
-end)
