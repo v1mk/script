@@ -547,7 +547,8 @@ Button2.MouseButton1Click:Connect(function()
 		Icon = "http://www.roblox.com/asset/?id=404098571"})
 	Duration = 5;
 	
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
+	
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
 end)
 
 Button2Corner.CornerRadius = UDim.new(0, 6)
