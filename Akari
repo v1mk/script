@@ -14,7 +14,7 @@ local OpenCloseCorner = Instance.new("UICorner")
 
 
 Akari.Name = "Akari"
-Akari.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Akari.Parent = game.CoreGui
 Akari.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = Akari
