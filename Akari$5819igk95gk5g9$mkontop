@@ -1,4 +1,15 @@
 -- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
+-- Discord : mm6k#0
 
 local AkariUi = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
@@ -29,7 +40,7 @@ Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Main.BackgroundTransparency = 0.100
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
-Main.Visible = true
+Main.Visible = false
 Main.Position = UDim2.new(0.238504112, 0, 0.208061814, 0)
 Main.Size = UDim2.new(0, 333, 0, 167)
 
