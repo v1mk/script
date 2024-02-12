@@ -1,52 +1,69 @@
 
 
-local Akari = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local FrameColorGradient = Instance.new("UIGradient")
-local FrameCorner = Instance.new("UICorner")
-local Button1 = Instance.new("TextButton")
-local Button1Corner = Instance.new("UICorner")
-local Button1ColorGradient = Instance.new("UIGradient")
-local Button2 = Instance.new("TextButton")
-local Button2Corner = Instance.new("UICorner")
-local Button2ColorGradient = Instance.new("UIGradient")
-local TextLabel = Instance.new("TextLabel")
-local OpenClose = Instance.new("ImageButton")
-local OpenCloseCorner = Instance.new("UICorner")
+local AkariUi = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local MainStroke = Instance.new("UIStroke")
+local MainGradient = Instance.new("UIGradient")
+local NameScriptLabel = Instance.new("TextLabel")
+local ButtonScript1 = Instance.new("TextButton")
+local ButtonScript1Corner = Instance.new("UICorner")
+local ButtonScript2 = Instance.new("TextButton")
+local ButtonScript2Corner = Instance.new("UICorner")
+local ButtonScript3 = Instance.new("TextButton")
+local ButtonScript3Corner = Instance.new("UICorner")
+local ButtonScript4 = Instance.new("TextButton")
+local ButtonScript4Corner = Instance.new("UICorner")
+local MainCorner = Instance.new("UICorner")
+local OpenCloseButton = Instance.new("ImageButton")
+local OpenCloseButtonCorner = Instance.new("UICorner")
 
 
-Akari.Name = "Akari"
-Akari.Parent = game.CoreGui
-Akari.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AkariUi.Name = "AkariUi"
+AkariUi.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AkariUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AkariUi.ResetOnSpawn = false
 
-Frame.Parent = Akari
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Visible = false
-Frame.Position = UDim2.new(0.313195556, 0, 0.517456353, 0)
-Frame.Size = UDim2.new(0, 265, 0, 47)
+Main.Name = "Main"
+Main.Parent = AkariUi
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 0.100
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.238504112, 0, 0.208061814, 0)
+Main.Size = UDim2.new(0, 333, 0, 167)
 
-FrameColorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 14, 103)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 153, 255))}
-FrameColorGradient.Rotation = -84
-FrameColorGradient.Name = "FrameColorGradient"
-FrameColorGradient.Parent = Frame
+MainStroke.Color = Color3.fromRGB(255, 255, 255)
+MainStroke.Name = "MainStroke"
+MainStroke.Parent = Main
 
-FrameCorner.Name = "FrameCorner"
-FrameCorner.Parent = Frame
+MainGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(44, 44, 44))}
+MainGradient.Name = "MainGradient"
+MainGradient.Parent = Main
 
-Button1.Name = "Button1"
-Button1.Parent = Frame
-Button1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Button1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button1.BorderSizePixel = 0
-Button1.Position = UDim2.new(0.0452830195, 0, 0.404255331, 0)
-Button1.Size = UDim2.new(0, 99, 0, 21)
-Button1.Font = Enum.Font.RobotoCondensed
-Button1.Text = "Script 1"
-Button1.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button1.TextSize = 13.000
-Button1.MouseButton1Click:Connect(function()
+NameScriptLabel.Name = "NameScriptLabel"
+NameScriptLabel.Parent = Main
+NameScriptLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameScriptLabel.BackgroundTransparency = 2.000
+NameScriptLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NameScriptLabel.BorderSizePixel = 0
+NameScriptLabel.Size = UDim2.new(0, 312, 0, 28)
+NameScriptLabel.Font = Enum.Font.GothamBold
+NameScriptLabel.Text = "Akari Hub"
+NameScriptLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+NameScriptLabel.TextSize = 20.000
+
+ButtonScript1.Name = "ButtonScript1"
+ButtonScript1.Parent = Main
+ButtonScript1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript1.BorderSizePixel = 0
+ButtonScript1.Position = UDim2.new(0.0540540554, 0, 0.239520818, 0)
+ButtonScript1.Size = UDim2.new(0, 101, 0, 28)
+ButtonScript1.Font = Enum.Font.GothamBold
+ButtonScript1.Text = "Fly Akari"
+ButtonScript1.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript1.TextSize = 14.000
+ButtonScript1.MouseButton1Click:Connect(function()
 	local main = Instance.new("ScreenGui")
 	local Frame = Instance.new("Frame")
 	local up = Instance.new("TextButton")
@@ -523,76 +540,108 @@ Button1.MouseButton1Click:Connect(function()
 	end)
 end)
 
-Button1Corner.CornerRadius = UDim.new(0, 6)
-Button1Corner.Name = "Button1Corner"
-Button1Corner.Parent = Button1
+ButtonScript1Corner.Name = "ButtonScript1Corner"
+ButtonScript1Corner.Parent = ButtonScript1
 
-Button1ColorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(38, 0, 152)), ColorSequenceKeypoint.new(0.48, Color3.fromRGB(0, 132, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 64, 132))}
-Button1ColorGradient.Name = "Button1ColorGradient"
-Button1ColorGradient.Parent = Button1
-
-Button2.Name = "Button2"
-Button2.Parent = Frame
-Button2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Button2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Button2.BorderSizePixel = 0
-Button2.Position = UDim2.new(0.524528325, 0, 0.404255331, 0)
-Button2.Size = UDim2.new(0, 99, 0, 21)
-Button2.Font = Enum.Font.RobotoCondensed
-Button2.Text = "Script 2"
-Button2.TextColor3 = Color3.fromRGB(0, 0, 0)
-Button2.TextSize = 13.000
-Button2.MouseButton1Click:Connect(function()
+ButtonScript2.Name = "ButtonScript2"
+ButtonScript2.Parent = Main
+ButtonScript2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript2.BorderSizePixel = 0
+ButtonScript2.Position = UDim2.new(0.633633614, 0, 0.239520773, 0)
+ButtonScript2.Size = UDim2.new(0, 101, 0, 28)
+ButtonScript2.Font = Enum.Font.GothamBold
+ButtonScript2.Text = "Fast Akari"
+ButtonScript2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript2.TextSize = 14.000
+ButtonScript2.MouseButton1Click:Connect(function()
 	game:GetService("StarterGui"):SetCore("SendNotification", { 
 		Title = "Akari Hub";
-		Text = "Script Blox Fruit By Akari";
+		Text = "Done Fast Akari";
+		Icon = "http://www.roblox.com/asset/?id=404098571"})
+	Duration = 5;
+
+
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+end)
+
+ButtonScript2Corner.Name = "ButtonScript2Corner"
+ButtonScript2Corner.Parent = ButtonScript2
+
+ButtonScript3.Name = "ButtonScript3"
+ButtonScript3.Parent = Main
+ButtonScript3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript3.BorderSizePixel = 0
+ButtonScript3.Position = UDim2.new(0.0540540554, 0, 0.6407184, 0)
+ButtonScript3.Size = UDim2.new(0, 101, 0, 28)
+ButtonScript3.Font = Enum.Font.GothamBold
+ButtonScript3.Text = "Boat Akari"
+ButtonScript3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript3.TextSize = 14.000
+ButtonScript3.MouseButton1Click:Connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification", { 
+		Title = "Akari Hub";
+		Text = "Done Boat Akari";
 		Icon = "http://www.roblox.com/asset/?id=404098571"})
 	Duration = 5;
 	
-	
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua"))()
 end)
 
-Button2Corner.CornerRadius = UDim.new(0, 6)
-Button2Corner.Name = "Button2Corner"
-Button2Corner.Parent = Button2
+ButtonScript3Corner.Name = "ButtonScript3Corner"
+ButtonScript3Corner.Parent = ButtonScript3
 
-Button2ColorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(38, 0, 152)), ColorSequenceKeypoint.new(0.48, Color3.fromRGB(0, 132, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 64, 132))}
-Button2ColorGradient.Name = "Button2ColorGradient"
-Button2ColorGradient.Parent = Button2
+ButtonScript4.Name = "ButtonScript4"
+ButtonScript4.Parent = Main
+ButtonScript4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonScript4.BorderSizePixel = 0
+ButtonScript4.Position = UDim2.new(0.633633614, 0, 0.6407184, 0)
+ButtonScript4.Size = UDim2.new(0, 101, 0, 28)
+ButtonScript4.Font = Enum.Font.GothamBold
+ButtonScript4.Text = "Crazy Akari"
+ButtonScript4.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript4.TextSize = 14.000
+ButtonScript4.MouseButton1Click:Connect(function()
+		game:GetService("StarterGui"):SetCore("SendNotification", { 
+			Title = "Akari Hub";
+			Text = "Done Boat Akari";
+			Icon = "http://www.roblox.com/asset/?id=404098571"})
+		Duration = 5;
 
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 2.000
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.294339627, 0, -0.234042555, 0)
-TextLabel.Size = UDim2.new(0, 73, 0, 11)
-TextLabel.Font = Enum.Font.RobotoCondensed
-TextLabel.Text = "Akari Hub"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 27.000
-
-OpenClose.Name = "OpenClose"
-OpenClose.Parent = Akari
-OpenClose.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-OpenClose.BorderColor3 = Color3.fromRGB(0, 0, 0)
-OpenClose.BorderSizePixel = 0
-OpenClose.Position = UDim2.new(0.178060412, 0, 0.594763041, 0)
-OpenClose.Size = UDim2.new(0, 37, 0, 38)
-OpenClose.Image = "rbxassetid://404098571"
-OpenClose.MouseButton1Click:Connect(function()
-	Frame.Visible = not Frame.Visible
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
 end)
 
-OpenCloseCorner.Name = "OpenCloseCorner"
-OpenCloseCorner.Parent = OpenClose
+ButtonScript4Corner.Name = "ButtonScript4Corner"
+ButtonScript4Corner.Parent = ButtonScript4
+
+MainCorner.Name = "MainCorner"
+MainCorner.Parent = Main
+
+OpenCloseButton.Name = "OpenCloseButton"
+OpenCloseButton.Parent = AkariUi
+OpenCloseButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OpenCloseButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OpenCloseButton.BorderSizePixel = 0
+OpenCloseButton.Position = UDim2.new(0.405465513, 0, 0.69703418, 0)
+OpenCloseButton.Size = UDim2.new(0, 46, 0, 45)
+OpenCloseButton.Image = "rbxassetid://404098571"
+OpenCloseButton.Active = true
+OpenCloseButton.Draggable = true
+OpenCloseButton.MouseButton1Click:Connect(function()
+	Main.Visible = not Main.Visible
+end)
+
+OpenCloseButtonCorner.CornerRadius = UDim.new(0, 6)
+OpenCloseButtonCorner.Name = "OpenCloseButtonCorner"
+OpenCloseButtonCorner.Parent = OpenCloseButton
 
 local function MakeDraggable() 
-	local script = Instance.new('LocalScript', Frame)
+	local script = Instance.new('LocalScript', Main)
 
 	local UIS = game:GetService("UserInputService")
-	function dragify(Frame)
+	function dragify(Main)
 		dragToggle = nil
 		local dragSpeed = 0
 		dragInput = nil
@@ -601,13 +650,13 @@ local function MakeDraggable()
 		function updateInput(input)
 			local Delta = input.Position - dragStart
 			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-			game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+			game:GetService("TweenService"):Create(Main, TweenInfo.new(0.25), {Position = Position}):Play()
 		end
-		Frame.InputBegan:Connect(function(input)
+		Main.InputBegan:Connect(function(input)
 			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
 				dragToggle = true
 				dragStart = input.Position
-				startPos = Frame.Position
+				startPos = Main.Position
 				input.Changed:Connect(function()
 					if input.UserInputState == Enum.UserInputState.End then
 						dragToggle = false
@@ -615,7 +664,7 @@ local function MakeDraggable()
 				end)
 			end
 		end)
-		Frame.InputChanged:Connect(function(input)
+		Main.InputChanged:Connect(function(input)
 			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 				dragInput = input
 			end
