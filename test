@@ -1,3 +1,4 @@
+-- test
 local Baki = {}
 function Baki:Window(name)
 	local BakiUi = Instance.new("ScreenGui")
@@ -564,22 +565,15 @@ Tab:Button("Nuke Loop Fling",function(state)
 			game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
 
 			task.wait(1)
-
-				local plr = game.Players.LocalPlayer
+	
+        getgenv().Fling = true
+        if getgenv().Fling == true then
+            local plr = game.Players.LocalPlayer
 			for _,v in pairs(plr.Backpack:GetChildren()) do
    		 		if v:IsA("Tool") and v.Name == "Couch" then
         	v.Parent = plr.Character
     	end
 end
-	
-        getgenv().Fling = true
-        if getgenv().Fling == true then
-            repeat wait()
-				for i, v in pairs(LocalPlayer.Backpack:GetChildren()) do
-					if v:IsA("Tool") then
-						v.Parent = LocalPlayer.Character
-					end
-				end
 
 				local Targets = {"random"}
 				local Players = game:GetService("Players")
