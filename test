@@ -1,4 +1,4 @@
--- test
+-- testt
 local Baki = {}
 function Baki:Window(name)
 	local BakiUi = Instance.new("ScreenGui")
@@ -552,7 +552,7 @@ local Tab = Baki:Tab("Nuke")
 Tab:Button("Nuke Loop Fling",function(state)
     if state then
 		game:GetService("StarterGui"):SetCore("SendNotification", { 
-			Title = "Loop Fling  "..plr.DisplayName..;
+			Title = "Loop Fling  ";
 			Text = "true";
 			Icon = ""})
 			Duration = 5; 
@@ -796,7 +796,7 @@ end
 end
     else
 		game:GetService("StarterGui"):SetCore("SendNotification", { 
-			Title = "Loop Fling  "..plr.DisplayName..;
+			Title = "Loop Fling  ";
 			Text = "false";
 			Icon = ""})
 			Duration = 5; 
